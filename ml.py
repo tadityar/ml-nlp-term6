@@ -1,4 +1,5 @@
 from collections import Counter
+import copy
 
 def parse_train(filename):
 	tags = []
@@ -22,4 +23,9 @@ def parse_train(filename):
 	tags_count = Counter(tags)
 	return res, tags_count
 
-print(parse_train('dev.out'))
+def get_emission_params(words_count, tags_count):
+	words_count_p = copy.deepcopy(words_count)
+	for k, v in words_count_p.items():
+		for i, j in v.items():
+			v[i] = j/tags_count[i]
+	return words_count_p
