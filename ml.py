@@ -2,16 +2,24 @@ from collections import Counter
 
 def parse_train(filename):
 	tags = []
+	pairs = []
 	words = []
 	f = open(filename, 'r')
-	for line in f:
-		line = line.split()
-		if len(line) > 0:
-			words.append(line[0])
-			tags.append(line[1])
-	tags = set(tags)
-	word_count = Counter(words)
-	print(tags)
-	# print(word_count)
+	res = {}
+	for k in f:
+		k = k.split()
+		if len(k) > 0:
+			k[0] = k[0].lower()
+			tags.append(k[1])
+			if k[0] not in res:
+				res[k[0]] = {}
+				res[k[0]][k[1]] = 1
+			else:
+				if k[1] not in res[k[0]]:
+					res[k[0]][k[1]] = 1
+				else:
+					res[k[0]][k[1]] += 1
+	tags_count = Counter(tags)
+	return res, tags_count
 
-parse_train('train')
+print(parse_train('dev.out'))
