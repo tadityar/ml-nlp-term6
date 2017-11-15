@@ -22,4 +22,31 @@ def parse_train(filename):
 	tags_count = Counter(tags)
 	return res, tags_count
 
-print(parse_train('dev.out'))
+# print(parse_train('dev.out'))
+
+def process_unknown(f,n):
+	output = []
+	output.append({"#UNK#" : []})
+	for word in f:
+		if sum([list(word.values())[0][key] for key in list(word.values())[0]]) > n:
+			output.append(word)
+		else:
+			for key in list(word.values())[0]:
+				if output[0].get(key):
+					output[0][key] += list(word.values())[0][key]
+				else:
+					output[0][key] = list(word.values())[0][key]
+
+	return output
+
+
+
+data = [
+	{"Trump" : {"A" : 200, "B" : 300, "C" : 400}},
+	{"Hillary" : {"A" : 1, "B" : 1}},
+	{"Matilda" : {"A" : 50, "B" : 60, "C" : 80}}
+]
+
+out = process_unknown(data,5)
+
+print (out)
