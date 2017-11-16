@@ -82,3 +82,20 @@ def tagging_words(wordAndTag,filename):
 		else:
 			print (wordWONL)
 	return taggedData
+	
+#parser creates [[{word:None},{word:None}],[{word:None},{word:None}]], separating sentences. 
+#parser requires that you end with 2 newlines at the end of the file. (same as the dev.in)
+def parser (filename):
+	file = open(filename,'r')
+	entiredata = []
+	sentence = []
+
+	for line in file:
+		if line == "\n":
+			entiredata.append(sentence)
+			sentence = []
+		else:
+			line = line.rstrip()
+			noneDict = {line:"None"}
+			sentence.append(noneDict)
+	return (entiredata)
