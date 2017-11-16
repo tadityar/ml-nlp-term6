@@ -30,7 +30,8 @@ def get_emission_params(words_count, tags_count):
 			v[i] = j/tags_count[i]
 	return words_count_p
 
-def process_unknown(f,n):
+#Given a certain input of most frequent words and their tags, classifies the least N occuring words into a #UNK# unknown field
+def process_unknown_words(f,n):
 	output = []
 	output.append({"#UNK#" : []})
 	for word in f:
@@ -45,17 +46,18 @@ def process_unknown(f,n):
 
 	return output
 
-
-
-data = [
-	{"Trump" : {"A" : 200, "B" : 300, "C" : 400}},
-	{"Hillary" : {"A" : 1, "B" : 1}},
-	{"Matilda" : {"A" : 50, "B" : 60, "C" : 80}}
-]
-
-out = process_unknown(data,5)
-
-print (out)
+#Given a certain testing data set inp and a model generated from process_unknown_words, classifies all words not found in the model as #UNK#
+def process_unknown_words_testing(inp,model):
+	output = copy.deepcopy(inp)
+	for i in range(len(output)):
+		for j in range(len(output[i])):
+			for key in output[i][j]:
+				for word in model:
+					if word.get(key):
+						output[i][j] = {key : None}
+					else:
+						output[i][j] = {'#UNK#' : None}
+	return output
 
 def generate_tagged_words(data):
 	wordAndTag = {}
@@ -98,4 +100,10 @@ def parser (filename):
 			line = line.rstrip()
 			noneDict = {line:"None"}
 			sentence.append(noneDict)
-	return (entiredata)
+	return entiredata
+
+testing_data = parser(r'D:\ISTD 2017-2\01-ML\EN\EN\dev.in')
+
+processed_data = process_unknown_words_testing(testing_data,[{"thes" : {"O" : 200}}])
+
+print (processed_data)
