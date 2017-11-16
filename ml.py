@@ -56,3 +56,29 @@ data = [
 out = process_unknown(data,5)
 
 print (out)
+
+def generate_tagged_words(data):
+	wordAndTag = {}
+	for wordset in data:
+		for word in wordset:
+			for tag in wordset[word]:
+				highestVal = 0
+				if wordset[word][tag]>highestVal:
+					highestVal = wordset[word][tag]
+					highestTag = tag
+			print (word,highestTag,highestVal)
+			wordAndTag.update({word:highestTag})
+	return wordAndTag
+
+def tagging_words(wordAndTag,filename):
+	taggedData = []
+	file = open(filename,'r')
+	for word in file:
+		wordWONL = word.rstrip()
+		if wordWONL in wordAndTag:
+			tag = wordAndTag.get(wordWONL)
+			taggedWord = {wordWONL:tag}
+			taggedData.append(taggedWord)
+		else:
+			print (wordWONL)
+	return taggedData
