@@ -72,18 +72,6 @@ def generate_tagged_words(data):
 			wordAndTag.update({word:highestTag})
 	return wordAndTag
 
-def tagging_words(wordAndTag,filename):
-	taggedData = []
-	file = open(filename,'r')
-	for word in file:
-		wordWONL = word.rstrip()
-		if wordWONL in wordAndTag:
-			tag = wordAndTag.get(wordWONL)
-			taggedWord = {wordWONL:tag}
-			taggedData.append(taggedWord)
-		else:
-			print (wordWONL)
-	return taggedData
 	
 #parser creates [[{word:None},{word:None}],[{word:None},{word:None}]], separating sentences. 
 #parser requires that you end with 2 newlines at the end of the file. (same as the dev.in)
@@ -102,6 +90,22 @@ def parser (filename):
 			sentence.append(noneDict)
 	return entiredata
 
+#new tagging_words that works with the new parser above
+
+def tagging_words(wordAndTag,entiredata):
+	sentenceCounter = 0
+	wordCounter = 0
+	for sentence in entiredata:
+		for wordDict in sentence:
+			for word in wordDict:
+				if word in wordAndTag:
+					tag = wordAndTag.get(word)
+					entiredata[sentenceCounter][wordCounter][word] = tag
+			wordCounter += 1        
+		sentenceCounter += 1
+	return entiredata
+
+	
 testing_data = parser(r'D:\ISTD 2017-2\01-ML\EN\EN\dev.in')
 
 processed_data = process_unknown_words_testing(testing_data,[{"thes" : {"O" : 200}}])
