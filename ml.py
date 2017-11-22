@@ -1,6 +1,9 @@
 from collections import Counter
 import copy
 
+'''
+Part 2
+'''
 def parse_train(filename):
 	tags = []
 	pairs = []
@@ -116,10 +119,47 @@ words_count, tag_count = parse_train(r'D:\ISTD 2017-2\01-ML\EN\EN\train')
 words_count = process_unknown_words(words_count,3)
 ep = get_emission_params(words_count, tag_count)
 
-#testing
+# #testing
 data = parser(r'D:\ISTD 2017-2\01-ML\EN\EN\dev.in')
 data_p = process_unknown_words_testing(data,words_count)
 ep_p = emission_param_preprocess(ep)
 tagged_words = tagged_words(ep_p,data_p)
 
 #testing vs actual output
+
+'''
+Part 3
+'''
+
+def get_transition_params(filename):
+	f = open(filename, 'r')
+	tags = ['START', 'O', 'B-positive', 'B-neutral', 'B-negative', 'I-positive', 'I-neutral', 'I-negative', 'STOP']
+	currentTag = 'START'
+	tagCount = [1,0,0,0,0,0,0,0,0]
+	tagTransitionCount = []
+	# initialise tagTransitionCount
+	for i in tags:
+		inner = []
+		for j in tags:
+			inner.append(0)
+		tagTransitionCount.append(inner)
+
+	# count transitions and tags
+	for line in f:
+		words = line.split()
+		if len(words) > 0:
+			tagTransitionCount[tags.index(currentTag)][tags.index(words[1])] += 1
+			tagCount[tags.index(currentTag)] += 1
+			currentTag = words[1]
+		else:
+			tagTransitionCount[tags.index(currentTag)][tags.index('STOP')] += 1
+			tagCount[tags.index(currentTag)] += 1
+			tagCount[-1] += 1
+			currentTag = 'START'
+
+	# count transition params
+	for i in tagTransitionCount:
+		for j in range(len(i)):
+			i[j] = i[j]/tagCount[j]
+	result = {'tags': tags, 'map': tagTransitionCount}
+	return result
