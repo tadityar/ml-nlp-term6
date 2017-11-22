@@ -38,16 +38,16 @@ def get_emission_params(wordsCount, tagsCount):
 #Given a certain input of most frequent words and their tags, classifies the least N occuring words into a #UNK# unknown field
 def process_unknown_words(f,n):
 	output = []
-	output.append({"#UNK#" : []})
+	output.append({"#UNK#" : {}})
 	for word in f:
 		if sum([list(word.values())[0][key] for key in list(word.values())[0]]) > n:
 			output.append(word)
 		else:
 			for key in list(word.values())[0]:
 				if output[0].get(key):
-					output[0][key] += list(word.values())[0][key]
+					output[0]["#UNK#"][key] += list(word.values())[0][key]
 				else:
-					output[0][key] = list(word.values())[0][key]
+					output[0]["#UNK#"][key] = list(word.values())[0][key]
 
 	return output
 
@@ -120,6 +120,6 @@ ep = get_emission_params(words_count, tag_count)
 data = parser(r'D:\ISTD 2017-2\01-ML\EN\EN\dev.in')
 data_p = process_unknown_words_testing(data,words_count)
 ep_p = emission_param_preprocess(ep)
-tagged_words = tagged_words(ep_p,data_p)
+tagged_words = tagging_words(ep_p,data_p)
 
 #testing vs actual output
