@@ -64,7 +64,7 @@ def process_unknown_words_testing(inp,model):
 						output[i][j] = {'#UNK#' : None}
 	return output
 
-def generate_tagged_words(data):
+def emission_param_preprocess(data):
 	wordAndTag = {}
 	for wordset in data:
 		for word in wordset:
@@ -110,7 +110,16 @@ def tagging_words(wordAndTag,entiredata):
 		sentenceCounter += 1
 	return entiredata
 
-	
-testing_data = parser(r'D:\ISTD 2017-2\01-ML\EN\EN\dev.in')
 
-processed_data = process_unknown_words_testing(testing_data,[{"thes" : {"O" : 200}}])
+#training	
+words_count, tag_count = parse_train(r'D:\ISTD 2017-2\01-ML\EN\EN\train')
+words_count = process_unknown_words(words_count,3)
+ep = get_emission_params(words_count, tag_count)
+
+#testing
+data = parser(r'D:\ISTD 2017-2\01-ML\EN\EN\dev.in')
+data_p = process_unknown_words_testing(data,words_count)
+ep_p = emission_param_preprocess(ep)
+tagged_words = tagged_words(ep_p,data_p)
+
+#testing vs actual output
