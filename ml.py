@@ -98,10 +98,10 @@ def parser (filename):
 #new tagging_words that works with the new parser above
 
 def tagging_words(wordAndTag,entiredata):
-	sentenceCounter = 0
-	wordCounter = 0
 	for sentence in entiredata:
+		sentenceCounter = 0
 		for wordDict in sentence:
+			wordCounter = 0
 			for word in wordDict:
 				if word in wordAndTag:
 					tag = wordAndTag.get(word)
@@ -110,7 +110,22 @@ def tagging_words(wordAndTag,entiredata):
 		sentenceCounter += 1
 	return entiredata
 
-
+def convert_back(p_data):
+    line = ""
+    output = ""
+    for sentence in p_data:
+        for dictionary in sentence:
+            for key,value in dictionary:
+                line = key+" "+ value + "\n"
+                output = output + line
+    return output
+	
+def output_file(data,fileName):
+    file = open(fileName,"a")
+    file.write(data)
+    file.close()
+	
+	
 #training	
 words_count, tag_count = parse_train(r'D:\ISTD 2017-2\01-ML\EN\EN\train')
 words_count = process_unknown_words(words_count,3)
