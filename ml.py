@@ -1,5 +1,6 @@
 from collections import Counter
 import copy
+from viterbi import viterbi
 
 '''
 Part 2
@@ -76,7 +77,7 @@ def emission_param_preprocess(data):
 				if wordset[word][tag]>highestVal:
 					highestVal = wordset[word][tag]
 					highestTag = tag
-			print (word,highestTag,highestVal)
+			# print (word,highestTag,highestVal)
 			wordAndTag.update({word:highestTag})
 	return wordAndTag
 
@@ -130,12 +131,12 @@ def output_file(data,fileName):
 	
 	
 #training	
-words_count, tag_count = parse_train(r'D:\ISTD 2017-2\01-ML\EN\EN\train')
+words_count, tag_count = parse_train(r'EN\train')
 words_count = process_unknown_words(words_count,3)
 ep = get_emission_params(words_count, tag_count)
 
 # #testing
-data = parser(r'D:\ISTD 2017-2\01-ML\EN\EN\dev.in')
+data = parser(r'EN\dev.in')
 data_p = process_unknown_words_testing(data,words_count)
 ep_p = emission_param_preprocess(ep)
 tagged_words = tagging_words(ep_p,data_p)
@@ -178,3 +179,15 @@ def get_transition_params(filename):
 			i[j] = i[j]/tagCount[j]
 	result = {'tags': tags, 'map': tagTransitionCount}
 	return result
+
+tp = get_transition_params(r'EN\train')
+
+seq = [
+	{'trump':None},
+	{'is':None}
+]
+
+
+p = viterbi(seq,-1,tp,ep)
+
+print (p)
