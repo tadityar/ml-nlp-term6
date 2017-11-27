@@ -1,6 +1,7 @@
 from collections import Counter
 import copy
 from viterbi import viterbi
+from viterbi import viterbi_backtrack
 
 '''
 Part 2
@@ -184,10 +185,15 @@ tp = get_transition_params(r'EN\train')
 
 seq = [
 	{'trump':None},
-	{'is':None}
+	{'is':None},
+	{'a':None},
+	{'lier':None}
 ]
 
 
 p = viterbi(seq,-1,tp,ep)
 
 print (p)
+
+o = viterbi_backtrack(tp,p,'STOP')
+print (o)
