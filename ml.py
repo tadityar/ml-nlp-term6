@@ -1,7 +1,6 @@
 from collections import Counter
 import copy
-from viterbi import viterbi
-from viterbi import viterbi_backtrack
+from viterbi import Viterbi
 
 '''
 Part 2
@@ -190,6 +189,10 @@ seq = [
 	{'lier':None}
 ]
 
+v = Viterbi(tp,ep)
+out = v.assign(seq)
+
+print (out)
 
 # p = viterbi(seq,-1,tp,ep)
 # print (p)
