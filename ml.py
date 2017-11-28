@@ -62,11 +62,11 @@ def process_unknown_words_testing(inp,model):
 	for i in range(len(output)):
 		for j in range(len(output[i])):
 			for key in output[i][j]:
+				present = False
 				for word in model:
 					if word.get(key):
-						output[i][j] = {key : None}
-					else:
-						output[i][j] = {'#UNK#' : None}
+						present = key
+				output[i][j] = {present : None} if present else {'#UNK#' : None}
 	return output
 
 def emission_param_preprocess(data):
@@ -191,9 +191,8 @@ seq = [
 ]
 
 
-p = viterbi(seq,-1,tp,ep)
+# p = viterbi(seq,-1,tp,ep)
+# print (p)
 
-print (p)
-
-o = viterbi_backtrack(tp,p,'STOP')
-print (o)
+# o = viterbi_backtrack(tp,p,'STOP')
+# print (o)
