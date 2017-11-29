@@ -100,29 +100,36 @@ def parser (filename):
 	return entiredata
 
 #new tagging_words that works with the new parser above
-
+#this needs to be reworked, to check if the word in  is inside wordAndTag and then 
 def tagging_words(wordAndTag,entiredata):
+	sentenceCounter = 0
 	for sentence in entiredata:
-		sentenceCounter = 0
+		wordCounter = 0
 		for wordDict in sentence:
-			wordCounter = 0
 			for word in wordDict:
 				if word in wordAndTag:
 					tag = wordAndTag.get(word)
 					entiredata[sentenceCounter][wordCounter][word] = tag
-			wordCounter += 1        
+				else:
+					entiredata[sentenceCounter][wordCounter][word] = "None"
+			wordCounter += 1
+			# print ("wordCounter")
+			# print (wordCounter)
 		sentenceCounter += 1
+		# print ("sentence")
+		# print (sentenceCounter)
 	return entiredata
 
 def convert_back(p_data):
-    line = ""
-    output = ""
-    for sentence in p_data:
-        for dictionary in sentence:
-            for key,value in dictionary:
-                line = key+" "+ value + "\n"
-                output = output + line
-    return output
+	line = ""
+	output = ""
+	for sentence in p_data:
+		output = output + "\n"
+		for dictionary in sentence:
+			for key,value in dictionary.items():
+				line = key+" "+ value + "\n"
+				output = output + line
+	return output
 	
 def output_file(data,fileName):
     file = open(fileName,"a")
@@ -142,6 +149,9 @@ ep_p = emission_param_preprocess(ep)
 tagged_words = tagging_words(ep_p,data_p)
 
 #testing vs actual output
+output_to_file = convert_back(tagged_words)
+output_file(output_to_file,r'EN\dev.p2.out')
+
 
 '''
 Part 3
