@@ -1,6 +1,7 @@
 from collections import Counter
 import copy
 from viterbi import Viterbi
+from forward_backward import ForwardBackward
 
 '''
 Part 2
@@ -219,9 +220,9 @@ def get_transition_params(filename):
 
 tp = get_transition_params(r'EN\train')
 
-seq = parser(r'D:\ISTD 2017-2\01-ML\ml-nlp-term6\EN\dev.in')
+seq = parser(r'EN\dev.in')
 
-v = Viterbi(tp,ep)
+v = ForwardBackward(tp,ep)
 
 for s in seq:
 	out = v.assign(s)
