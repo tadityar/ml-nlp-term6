@@ -42,7 +42,7 @@ def parse_train_lower(filename):
 	for k in f:
 		k = k.split()
 		if len(k) > 0:
-			k[0] = k[0].lower()
+			k[0] = k[0]
 			tags.append(k[1])
 			for i in res:
 				if k[0] in i:
@@ -123,7 +123,7 @@ def parser (filename):
 			sentence = []
 		else:
 			line = line.rstrip()
-			noneDict = {line.lower():"None"}
+			noneDict = {line:"None"}
 			sentence.append(noneDict)
 	file.close()
 	return entiredata
@@ -261,6 +261,12 @@ print (tp)
 # for s in seq:
 # 	out = v.assign(s)
 # 	v_out.append(out)
+v = Viterbi(tp,ep)
+v_out = []
+for s in seq:
+	out = v.assign(s)
+	print (out)
+	v_out.append(out)
 # v_seq = v_result_parse(v_out,seq)
 # output_to_file = convert_back(v_seq)
 # output_file(output_to_file,r'EN\dev.fb.out')

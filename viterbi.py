@@ -16,8 +16,9 @@ class Viterbi:
 			values = []
 			for v in self.t['tags'][1:-1]:
 				lst = self.__get_transition_param(pre_t,v)*self.__get_emission_param(seq,state,v)
-				val = {'val' : self.tree[state][v] if self.tree[state].get(v) else self.__viterbi_forward(seq,state+1,v),'tag' : v, 'lst' : lst}
-				self.tree[state][val['tag']] = val['val']
+				result = self.tree[state+1][v] if self.tree[state+1].get(v) else self.__viterbi_forward(seq,state+1,v)
+				val = {'val' : result,'tag' : v, 'lst' : lst}
+				self.tree[state][val['tag']] = val['val'] + [val['val'][-1]*val['lst']]
 				values.append(val)				
 
 			o = max(values,key=lambda x:x['val'][-1]*x['lst'])
