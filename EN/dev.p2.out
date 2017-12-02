@@ -51777,7 +51777,11 @@ other O
 guests O
 . O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 tuna B-positive
 and I-neutral
 #UNK# I-neutral
@@ -51791,6 +51795,7 @@ my O
 pizza I-neutral
 joint O
 in I-negative
+<<<<<<< HEAD
 #UNK# I-neutral
 
 food I-neutral
@@ -64728,6 +64733,9 @@ pizza I-neutral
 joint O
 in I-negative
 #UNK# I-neutral
+=======
+seattle O
+>>>>>>> unneeded commit
 
 food I-neutral
 #UNK# I-neutral
@@ -64742,8 +64750,13 @@ for I-negative
 what O
 you O
 get O
+<<<<<<< HEAD
 #UNK# I-neutral
 the I-negative
+=======
+considering O
+the B-positive
+>>>>>>> unneeded commit
 restaurant B-neutral
 #UNK# I-neutral
 a O
@@ -64756,7 +64769,11 @@ place B-neutral
 away O
 over I-positive
 by I-negative
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 #UNK# I-neutral
 . O
@@ -64783,7 +64800,11 @@ my O
 after O
 i O
 left O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 restaurant B-neutral
 . O
 
@@ -64820,18 +64841,31 @@ or I-negative
 a O
 seat O
 at O
+<<<<<<< HEAD
 the I-negative
 sushi I-positive
 bar I-positive
 . O
 
 the I-negative
+=======
+the B-positive
+sushi I-positive
+bar B-negative
+. O
+
+the B-positive
+>>>>>>> unneeded commit
 wine B-neutral
 list I-negative
 is O
 wonderful O
 and I-neutral
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 food I-neutral
 #UNK# I-neutral
 me O
@@ -64851,13 +64885,21 @@ that O
 is O
 one O
 of I-neutral
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 best O
 seafood I-positive
 restaurants O
 in I-negative
 new I-positive
+<<<<<<< HEAD
 #UNK# I-neutral
+=======
+york I-positive
+>>>>>>> unneeded commit
 . O
 
 believe O
@@ -64884,7 +64926,11 @@ and I-neutral
 a O
 variety O
 of I-neutral
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 beer B-negative
 ( I-positive
 cold B-positive
@@ -64925,7 +64971,11 @@ was O
 delicious O
 . O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 staff O
 was O
 very O
@@ -64934,7 +64984,11 @@ and I-neutral
 #UNK# I-neutral
 and I-neutral
 #UNK# I-neutral
+<<<<<<< HEAD
 #UNK# I-neutral
+=======
+chinese B-positive
+>>>>>>> unneeded commit
 . O
 
 this O
@@ -64978,7 +65032,11 @@ we O
 with I-positive
 #UNK# I-neutral
 #UNK# I-neutral
+<<<<<<< HEAD
 #UNK# I-neutral
+=======
+cake I-negative
+>>>>>>> unneeded commit
 , I-positive
 both O
 were O
@@ -65006,7 +65064,11 @@ this O
 review O
 is O
 for I-negative
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 location B-neutral
 which O
@@ -65031,7 +65093,11 @@ to I-positive
 be O
 #UNK# I-neutral
 by I-negative
+<<<<<<< HEAD
 #UNK# I-neutral
+=======
+management B-negative
+>>>>>>> unneeded commit
 but O
 #UNK# I-neutral
 has O
@@ -65042,7 +65108,11 @@ each O
 other O
 for I-negative
 a O
+<<<<<<< HEAD
 #UNK# I-neutral
+=======
+chance O
+>>>>>>> unneeded commit
 to I-positive
 eat O
 at O
@@ -65061,7 +65131,11 @@ review O
 as O
 well O
 as O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 other O
 #UNK# I-neutral
 #UNK# I-neutral
@@ -65070,11 +65144,19 @@ their O
 #UNK# I-neutral
 location B-neutral
 will O
+<<<<<<< HEAD
 go O
 #UNK# I-neutral
 . O
 
 #UNK# I-neutral
+=======
+go I-negative
+#UNK# I-neutral
+. O
+
+i'll O
+>>>>>>> unneeded commit
 be O
 back B-positive
 for I-negative
@@ -65084,7 +65166,11 @@ sure O
 good B-positive
 experience O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 is O
 always O
@@ -65102,8 +65188,13 @@ regular O
 and I-neutral
 some O
 #UNK# I-neutral
+<<<<<<< HEAD
 the I-negative
 #UNK# I-neutral
+=======
+the B-positive
+salads I-negative
+>>>>>>> unneeded commit
 we O
 got O
 were O
@@ -65159,7 +65250,11 @@ little O
 place B-neutral
 has O
 a O
+<<<<<<< HEAD
 #UNK# I-neutral
+=======
+cute O
+>>>>>>> unneeded commit
 #UNK# I-neutral
 decor I-positive
 and I-neutral
@@ -65168,14 +65263,22 @@ city I-positive
 prices O
 . O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 location B-neutral
 and I-neutral
 ambience I-positive
 is O
 ok O
 but O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 food I-neutral
 is O
 what O
@@ -65193,9 +65296,15 @@ back B-positive
 home O
 after O
 #UNK# I-neutral
+<<<<<<< HEAD
 #UNK# I-neutral
 #UNK# I-neutral
 #UNK# I-neutral
+=======
+casa B-positive
+la B-positive
+femme I-positive
+>>>>>>> unneeded commit
 and I-neutral
 was O
 so O
@@ -65220,13 +65329,22 @@ and I-neutral
 time O
 . O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 place B-neutral
 #UNK# I-neutral
 is O
 beautiful O
+<<<<<<< HEAD
 the I-negative
 bar I-positive
+=======
+the B-positive
+bar B-negative
+>>>>>>> unneeded commit
 #UNK# I-neutral
 #UNK# I-neutral
 to I-positive
@@ -65236,7 +65354,11 @@ be O
 
 also O
 , I-positive
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 ( I-positive
 #UNK# I-neutral
@@ -65254,7 +65376,11 @@ a O
 side I-negative
 . O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 stuff I-negative
 #UNK# I-neutral
 was O
@@ -65288,7 +65414,11 @@ not O
 a O
 place B-neutral
 to I-positive
+<<<<<<< HEAD
 go O
+=======
+go I-negative
+>>>>>>> unneeded commit
 if O
 you O
 want O
@@ -65297,8 +65427,13 @@ to I-positive
 someone O
 . O
 
+<<<<<<< HEAD
 the I-negative
 #UNK# I-neutral
+=======
+the B-positive
+lamb I-positive
+>>>>>>> unneeded commit
 was O
 #UNK# I-neutral
 so O
@@ -65306,7 +65441,11 @@ full O
 of I-neutral
 flavor O
 , I-positive
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 dessert B-positive
 was O
 #UNK# I-neutral
@@ -65328,12 +65467,20 @@ off O
 , I-positive
 our O
 lovely O
+<<<<<<< HEAD
 server B-positive
+=======
+server B-negative
+>>>>>>> unneeded commit
 #UNK# I-neutral
 was O
 quickly O
 on I-positive
+<<<<<<< HEAD
 hand O
+=======
+hand I-positive
+>>>>>>> unneeded commit
 to I-positive
 take O
 my O
@@ -65357,25 +65504,43 @@ nothing O
 to I-positive
 do O
 with I-positive
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 food I-neutral
 #UNK# I-neutral
 . O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 was O
 some O
 of I-neutral
+<<<<<<< HEAD
 the I-negative
 best O
 #UNK# I-neutral
+=======
+the B-positive
+best O
+i've O
+>>>>>>> unneeded commit
 had O
 and I-neutral
 i O
 really O
 enjoyed O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 , I-positive
 not O
@@ -65387,7 +65552,11 @@ fabulous O
 food I-neutral
 - I-positive
 if O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 front B-negative
 of I-neutral
 house O
@@ -65402,7 +65571,11 @@ off O
 worst O
 restaurant B-neutral
 in I-negative
+<<<<<<< HEAD
 #UNK# I-neutral
+=======
+manhattan O
+>>>>>>> unneeded commit
 
 inside O
 is O
@@ -65428,7 +65601,11 @@ so O
 that O
 you O
 can O
+<<<<<<< HEAD
 go O
+=======
+go I-negative
+>>>>>>> unneeded commit
 hang O
 out O
 #UNK# I-neutral
@@ -65443,9 +65620,15 @@ your O
 #UNK# I-neutral
 . O
 
+<<<<<<< HEAD
 go O
 to I-positive
 japanese O
+=======
+go I-negative
+to I-positive
+japanese B-positive
+>>>>>>> unneeded commit
 sushi I-positive
 place B-neutral
 or I-negative
@@ -65480,7 +65663,11 @@ of I-neutral
 , I-positive
 i O
 called O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 restaurant B-neutral
 to I-positive
 give O
@@ -65495,7 +65682,11 @@ might O
 want O
 to I-positive
 check O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 of I-neutral
 their O
@@ -65503,7 +65694,11 @@ their O
 #UNK# I-neutral
 . O
 
+<<<<<<< HEAD
 #UNK# I-neutral
+=======
+i'm O
+>>>>>>> unneeded commit
 #UNK# I-neutral
 i O
 was O
@@ -65518,7 +65713,11 @@ a O
 #UNK# I-neutral
 gem O
 in I-negative
+<<<<<<< HEAD
 #UNK# I-neutral
+=======
+ny O
+>>>>>>> unneeded commit
 . O
 
 it's O
@@ -65534,7 +65733,11 @@ it O
 #UNK# I-neutral
 . O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 food I-neutral
 is O
 fantastic O
@@ -65568,7 +65771,11 @@ didn't O
 wine B-neutral
 ? O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 staff O
 offers O
 #UNK# I-neutral
@@ -65576,7 +65783,11 @@ service B-neutral
 . O
 
 great O
+<<<<<<< HEAD
 indian B-positive
+=======
+indian I-positive
+>>>>>>> unneeded commit
 food I-neutral
 ! O
 
@@ -65586,14 +65797,22 @@ with I-positive
 most O
 restaurants O
 in I-negative
+<<<<<<< HEAD
 #UNK# I-neutral
+=======
+seattle O
+>>>>>>> unneeded commit
 , I-positive
 #UNK# I-neutral
 service B-neutral
 was O
 bad O
 and I-neutral
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 food I-neutral
 was O
 overpriced O
@@ -65605,7 +65824,11 @@ and I-neutral
 #UNK# I-neutral
 selection I-negative
 and I-neutral
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 pizza I-neutral
 #UNK# I-neutral
 . O
@@ -65618,8 +65841,13 @@ for I-negative
 #UNK# I-neutral
 . O
 
+<<<<<<< HEAD
 the I-negative
 wait B-negative
+=======
+the B-positive
+wait B-positive
+>>>>>>> unneeded commit
 staff O
 is O
 pleasant O
@@ -65628,13 +65856,21 @@ fun I-negative
 , I-positive
 and I-neutral
 for I-negative
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 most O
 part O
 #UNK# I-neutral
 ( I-positive
 in I-negative
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 wonderful O
 #UNK# I-neutral
 #UNK# I-neutral
@@ -65668,7 +65904,11 @@ every O
 week O
 . O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 last O
 two O
 times O
@@ -65689,15 +65929,26 @@ eat O
 it O
 , I-positive
 and I-neutral
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 took O
 away O
 from O
+<<<<<<< HEAD
 the I-negative
 flavor O
 of I-neutral
 the I-negative
+=======
+the B-positive
+flavor O
+of I-neutral
+the B-positive
+>>>>>>> unneeded commit
 dish B-positive
 . O
 
@@ -65708,7 +65959,11 @@ this O
 is O
 some O
 of I-neutral
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 worst O
 sushi I-positive
 i O
@@ -65766,7 +66021,11 @@ them O
 . O
 
 with I-positive
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 of I-neutral
 our O
@@ -65785,7 +66044,11 @@ our O
 #UNK# I-neutral
 #UNK# I-neutral
 , I-positive
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 food I-neutral
 here O
 was O
@@ -65808,16 +66071,27 @@ is O
 % O
 right O
 in I-negative
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 experience O
 we O
 had O
 . O
 
+<<<<<<< HEAD
 the I-negative
 #UNK# I-neutral
 of I-neutral
 the I-negative
+=======
+the B-positive
+#UNK# I-neutral
+of I-neutral
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 #UNK# I-neutral
 , I-positive
@@ -65834,7 +66108,11 @@ it O
 
 much O
 of I-neutral
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 time O
 it O
 #UNK# I-neutral
@@ -65851,7 +66129,11 @@ best O
 in I-negative
 all O
 of I-neutral
+<<<<<<< HEAD
 #UNK# I-neutral
+=======
+nyc I-neutral
+>>>>>>> unneeded commit
 
 #UNK# I-neutral
 me O
@@ -65861,7 +66143,11 @@ and I-neutral
 where O
 does O
 #UNK# I-neutral
+<<<<<<< HEAD
 go O
+=======
+go I-negative
+>>>>>>> unneeded commit
 wrong O
 ; O
 no O
@@ -65874,7 +66160,11 @@ is O
 my O
 favorite O
 #UNK# I-neutral
+<<<<<<< HEAD
 japanese O
+=======
+japanese B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 ( I-positive
 that O
@@ -65892,12 +66182,20 @@ my O
 , I-positive
 one O
 of I-neutral
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 most O
 romantic O
 restaurants O
 in I-negative
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 city I-positive
 ! O
 
@@ -65910,7 +66208,11 @@ eaten O
 several O
 more O
 , I-positive
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 was O
 fine O
@@ -65920,11 +66222,19 @@ he O
 even O
 #UNK# I-neutral
 that O
+<<<<<<< HEAD
 the I-negative
 #UNK# I-neutral
 #UNK# I-neutral
 were O
 the I-negative
+=======
+the B-positive
+#UNK# I-neutral
+#UNK# I-neutral
+were O
+the B-positive
+>>>>>>> unneeded commit
 best O
 he O
 has O
@@ -65936,7 +66246,11 @@ asked O
 for I-negative
 #UNK# I-neutral
 which O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 waiter O
 than O
 #UNK# I-neutral
@@ -65974,13 +66288,21 @@ get O
 better O
 just O
 around O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 : O
 
 after O
 dinner B-positive
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 manager B-positive
 #UNK# I-neutral
 my O
@@ -66006,7 +66328,11 @@ in I-negative
 ... O
 and I-neutral
 in I-negative
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 end O
 #UNK# I-neutral
 away O
@@ -66016,7 +66342,11 @@ almost O
 that O
 #UNK# I-neutral
 are O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 only O
 thing O
 they O
@@ -66028,8 +66358,13 @@ it O
 was O
 well O
 worth O
+<<<<<<< HEAD
 the I-negative
 wait B-negative
+=======
+the B-positive
+wait B-positive
+>>>>>>> unneeded commit
 . O
 
 my O
@@ -66042,9 +66377,15 @@ would O
 be O
 great O
 to I-positive
+<<<<<<< HEAD
 go O
 to I-positive
 the I-negative
+=======
+go I-negative
+to I-positive
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 and I-neutral
 #UNK# I-neutral
@@ -66065,8 +66406,13 @@ fantastic O
 my O
 wife O
 had O
+<<<<<<< HEAD
 the I-negative
 fried I-positive
+=======
+the B-positive
+fried B-neutral
+>>>>>>> unneeded commit
 shrimp B-positive
 which O
 are O
@@ -66098,9 +66444,15 @@ with I-positive
 either O
 a O
 #UNK# I-neutral
+<<<<<<< HEAD
 sauce B-negative
 or I-negative
 #UNK# I-neutral
+=======
+sauce I-negative
+or I-negative
+red O
+>>>>>>> unneeded commit
 wine B-neutral
 #UNK# I-neutral
 , I-positive
@@ -66112,7 +66464,11 @@ in I-negative
 taste O
 . O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 food I-neutral
 was O
 absolutely O
@@ -66140,7 +66496,11 @@ be O
 a O
 30 O
 #UNK# I-neutral
+<<<<<<< HEAD
 wait B-negative
+=======
+wait B-positive
+>>>>>>> unneeded commit
 . O
 
 i O
@@ -66149,7 +66509,11 @@ not O
 think O
 dinner B-positive
 in I-negative
+<<<<<<< HEAD
 #UNK# I-neutral
+=======
+manhattan O
+>>>>>>> unneeded commit
 should O
 cost O
 $ B-positive
@@ -66189,6 +66553,7 @@ disappointed O
 . O
 
 try O
+<<<<<<< HEAD
 the I-negative
 #UNK# I-neutral
 and I-neutral
@@ -66197,6 +66562,16 @@ the I-negative
 like O
 #UNK# I-neutral
 fried I-positive
+=======
+the B-positive
+#UNK# I-neutral
+and I-neutral
+the B-positive
+#UNK# I-neutral
+like O
+#UNK# I-neutral
+fried B-neutral
+>>>>>>> unneeded commit
 #UNK# I-neutral
 they O
 #UNK# I-neutral
@@ -66215,10 +66590,17 @@ sweet O
 rather O
 than O
 #UNK# I-neutral
+<<<<<<< HEAD
 #UNK# I-neutral
 dish B-positive
 , I-positive
 the I-negative
+=======
+vegetarian O
+dish B-positive
+, I-positive
+the B-positive
+>>>>>>> unneeded commit
 chef I-negative
 #UNK# I-neutral
 me O
@@ -66230,7 +66612,11 @@ of I-neutral
 #UNK# I-neutral
 ( I-positive
 #UNK# I-neutral
+<<<<<<< HEAD
 sauce B-negative
+=======
+sauce I-negative
+>>>>>>> unneeded commit
 , I-positive
 #UNK# I-neutral
 , I-positive
@@ -66244,7 +66630,11 @@ or I-negative
 . O
 
 in I-negative
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 end O
 you O
 end O
@@ -66274,7 +66664,11 @@ that O
 my O
 dinner B-positive
 at O
+<<<<<<< HEAD
 #UNK# I-neutral
+=======
+ray's B-neutral
+>>>>>>> unneeded commit
 #UNK# I-neutral
 last O
 #UNK# I-neutral
@@ -66307,7 +66701,11 @@ we O
 #UNK# I-neutral
 nothing O
 about O
+<<<<<<< HEAD
 indian B-positive
+=======
+indian I-positive
+>>>>>>> unneeded commit
 food I-neutral
 . O
 
@@ -66358,7 +66756,11 @@ as O
 i O
 expected O
 from O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 reviews O
 i O
 #UNK# I-neutral
@@ -66374,7 +66776,11 @@ place B-neutral
 must O
 have O
 cost O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 owners B-negative
 #UNK# I-neutral
 to I-positive
@@ -66382,7 +66788,11 @@ to I-positive
 . O
 
 on I-positive
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 way O
 out O
 , I-positive
@@ -66397,14 +66807,22 @@ about O
 #UNK# I-neutral
 . O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 portions B-neutral
 are O
 small I-positive
 but O
 being O
 that O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 food I-neutral
 was O
 so O
@@ -66435,7 +66853,11 @@ you O
 are O
 going O
 for I-negative
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 food I-neutral
 , I-positive
 it O
@@ -66471,8 +66893,13 @@ busy O
 
 its O
 worth O
+<<<<<<< HEAD
 the I-negative
 wait B-negative
+=======
+the B-positive
+wait B-positive
+>>>>>>> unneeded commit
 , I-positive
 especially O
 since O
@@ -66482,7 +66909,11 @@ you O
 a O
 #UNK# I-neutral
 when O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 table I-positive
 is O
 #UNK# I-neutral
@@ -66548,14 +66979,24 @@ so O
 after O
 sitting O
 at O
+<<<<<<< HEAD
 the I-negative
 bar I-positive
+=======
+the B-positive
+bar B-negative
+>>>>>>> unneeded commit
 for I-negative
 over I-positive
 20 O
 minutes O
+<<<<<<< HEAD
 the I-negative
 bar I-positive
+=======
+the B-positive
+bar B-negative
+>>>>>>> unneeded commit
 keep O
 had O
 made O
@@ -66573,7 +67014,11 @@ with I-positive
 us O
 . O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 #UNK# I-neutral
 #UNK# I-neutral
@@ -66608,20 +67053,32 @@ for I-negative
 a O
 table I-positive
 in I-negative
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 . O
 
 #UNK# I-neutral
 #UNK# I-neutral
 #UNK# I-neutral
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 right O
 #UNK# I-neutral
 #UNK# I-neutral
 of I-neutral
 #UNK# I-neutral
+<<<<<<< HEAD
 #UNK# I-neutral
+=======
+korean B-negative
+>>>>>>> unneeded commit
 food I-neutral
 and I-neutral
 #UNK# I-neutral
@@ -66665,7 +67122,11 @@ with I-positive
 fish I-negative
 #UNK# I-neutral
 up O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 , I-positive
 and I-neutral
@@ -66675,7 +67136,11 @@ so O
 #UNK# I-neutral
 this O
 was O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 place B-neutral
 it O
 #UNK# I-neutral
@@ -66693,7 +67158,11 @@ next O
 time O
 we O
 will O
+<<<<<<< HEAD
 go O
+=======
+go I-negative
+>>>>>>> unneeded commit
 #UNK# I-neutral
 else O
 , I-positive
@@ -66705,13 +67174,21 @@ close O
 by I-negative
 like O
 #UNK# I-neutral
+<<<<<<< HEAD
 #UNK# I-neutral
+=======
+cafe O
+>>>>>>> unneeded commit
 and I-neutral
 #UNK# I-neutral
 #UNK# I-neutral
 . O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 drinks I-negative
 are O
 great O
@@ -66731,13 +67208,21 @@ is O
 excellent O
 . O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 service B-neutral
 is O
 #UNK# I-neutral
 . O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 food I-neutral
 is O
 a O
@@ -66746,14 +67231,22 @@ in I-negative
 #UNK# I-neutral
 - I-positive
 - I-positive
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 food I-neutral
 is O
 delicious O
 and I-neutral
 #UNK# I-neutral
 with I-positive
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 perfect O
 #UNK# I-neutral
 of I-neutral
@@ -66774,7 +67267,11 @@ good B-positive
 service B-neutral
 , I-positive
 but O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 food I-neutral
 was O
 #UNK# I-neutral
@@ -66789,10 +67286,17 @@ a O
 very O
 day O
 of I-neutral
+<<<<<<< HEAD
 the I-negative
 week O
 for I-negative
 the I-negative
+=======
+the B-positive
+week O
+for I-negative
+the B-positive
+>>>>>>> unneeded commit
 entire O
 time O
 a O
@@ -66820,8 +67324,13 @@ my O
 #UNK# I-neutral
 who O
 had O
+<<<<<<< HEAD
 the I-negative
 #UNK# I-neutral
+=======
+the B-positive
+grilled B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 #UNK# I-neutral
 , I-positive
@@ -66832,7 +67341,11 @@ in I-negative
 juice I-negative
 ! O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 bathroom I-negative
 #UNK# I-neutral
 is O
@@ -66846,20 +67359,32 @@ only O
 one O
 #UNK# I-neutral
 , I-positive
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 was O
 #UNK# I-neutral
 totally O
 on I-positive
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 way O
 #UNK# I-neutral
 out O
 #UNK# I-neutral
 #UNK# I-neutral
 from O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 . O
 
@@ -66870,11 +67395,19 @@ or I-negative
 charming O
 location B-neutral
 #UNK# I-neutral
+<<<<<<< HEAD
 the I-negative
 #UNK# I-neutral
 in I-negative
 long O
 #UNK# I-neutral
+=======
+the B-positive
+#UNK# I-neutral
+in I-negative
+long O
+beach O
+>>>>>>> unneeded commit
 and I-neutral
 average O
 food I-neutral
@@ -66892,19 +67425,32 @@ customer O
 service B-neutral
 . O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 pizza I-neutral
 was O
 slightly O
 #UNK# I-neutral
 of I-neutral
 #UNK# I-neutral
+<<<<<<< HEAD
 #UNK# I-neutral
 pizza I-neutral
 which O
 #UNK# I-neutral
 the I-negative
 the I-negative
+=======
+beach O
+pizza I-neutral
+which O
+#UNK# I-neutral
+the B-positive
+the B-positive
+>>>>>>> unneeded commit
 space B-negative
 years O
 #UNK# I-neutral
@@ -66915,7 +67461,11 @@ second O
 ) I-positive
 . O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 restaurant B-neutral
 was O
 packed O
@@ -66926,8 +67476,13 @@ so O
 we O
 waited O
 at O
+<<<<<<< HEAD
 the I-negative
 bar I-positive
+=======
+the B-positive
+bar B-negative
+>>>>>>> unneeded commit
 for I-negative
 about O
 20 O
@@ -66944,7 +67499,11 @@ fabulous O
 #UNK# I-neutral
 ! O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 were O
 served O
@@ -66995,7 +67554,11 @@ on I-positive
 #UNK# I-neutral
 and I-neutral
 #UNK# I-neutral
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 reviews O
 . O
 
@@ -67005,7 +67568,11 @@ try O
 ! O
 
 #UNK# I-neutral
+<<<<<<< HEAD
 go O
+=======
+go I-negative
+>>>>>>> unneeded commit
 ! O
 
 this O
@@ -67024,10 +67591,17 @@ money O
 . O
 
 worth O
+<<<<<<< HEAD
 the I-negative
 wait B-negative
 
 #UNK# I-neutral
+=======
+the B-positive
+wait B-positive
+
+i've O
+>>>>>>> unneeded commit
 been O
 many O
 time O
@@ -67038,10 +67612,17 @@ been O
 disappointed O
 . O
 
+<<<<<<< HEAD
 the I-negative
 servers B-negative
 #UNK# I-neutral
 the I-negative
+=======
+the B-positive
+servers B-negative
+#UNK# I-neutral
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 are O
 always O
@@ -67052,10 +67633,17 @@ helpful O
 
 we O
 were O
+<<<<<<< HEAD
 fast O
 to I-positive
 order O
 the I-negative
+=======
+fast I-positive
+to I-positive
+order O
+the B-positive
+>>>>>>> unneeded commit
 appetizer B-negative
 #UNK# I-neutral
 since O
@@ -67068,11 +67656,19 @@ very O
 i O
 also O
 recommend O
+<<<<<<< HEAD
 the I-negative
 rice I-positive
 dishes B-neutral
 or I-negative
 the I-negative
+=======
+the B-positive
+rice I-positive
+dishes B-neutral
+or I-negative
+the B-positive
+>>>>>>> unneeded commit
 different O
 #UNK# I-neutral
 of I-neutral
@@ -67083,7 +67679,11 @@ rice I-positive
 ) I-positive
 . O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 food I-neutral
 is O
 #UNK# I-neutral
@@ -67097,16 +67697,26 @@ real O
 love O
 #UNK# I-neutral
 #UNK# I-neutral
+<<<<<<< HEAD
 #UNK# I-neutral
 
 the I-negative
+=======
+la B-positive
+
+the B-positive
+>>>>>>> unneeded commit
 only O
 thing O
 that O
 #UNK# I-neutral
 you O
 is O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 decor I-positive
 ? O
 ( I-positive
@@ -67165,14 +67775,22 @@ in I-negative
 return O
 - I-positive
 it's O
+<<<<<<< HEAD
 #UNK# I-neutral
+=======
+manhattan O
+>>>>>>> unneeded commit
 , I-positive
 things O
 are O
 expensive O
 . O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 service B-neutral
 was O
 #UNK# I-neutral
@@ -67183,7 +67801,11 @@ attentive O
 great O
 food I-neutral
 and I-neutral
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 prices O
 are O
 very O
@@ -67199,14 +67821,22 @@ to I-positive
 of I-neutral
 . O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 #UNK# I-neutral
 is O
 always O
 amazing O
 and I-neutral
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 #UNK# I-neutral
 #UNK# I-neutral
@@ -67225,7 +67855,11 @@ love O
 #UNK# I-neutral
 and I-neutral
 at O
+<<<<<<< HEAD
 #UNK# I-neutral
+=======
+ray's B-neutral
+>>>>>>> unneeded commit
 you O
 can O
 get O
@@ -67241,7 +67875,11 @@ different O
 i O
 probably O
 wouldn't O
+<<<<<<< HEAD
 go O
+=======
+go I-negative
+>>>>>>> unneeded commit
 back B-positive
 though O
 ' I-negative
@@ -67258,8 +67896,13 @@ it O
 this O
 place B-neutral
 has O
+<<<<<<< HEAD
 the I-negative
 the I-negative
+=======
+the B-positive
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 ambience I-positive
 and I-neutral
@@ -67277,7 +67920,11 @@ and I-neutral
 a O
 friend O
 at O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 same O
 time O
 . O
@@ -67286,7 +67933,11 @@ i O
 have O
 reservations O
 about O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 all O
 you O
 can O
@@ -67296,7 +67947,11 @@ deal I-positive
 however O
 - I-positive
 - I-positive
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 choices O
 are O
 fairly O
@@ -67321,7 +67976,11 @@ by I-negative
 just O
 going O
 off O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 menu I-neutral
 . O
 
@@ -67335,7 +67994,11 @@ excellent O
 and I-neutral
 i O
 liked O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 setting O
 / I-positive
 atmosphere B-neutral
@@ -67358,7 +68021,11 @@ is O
 #UNK# I-neutral
 #UNK# I-neutral
 ) I-positive
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 of I-neutral
 food I-neutral
@@ -67380,7 +68047,11 @@ in I-negative
 which O
 #UNK# I-neutral
 or I-negative
+<<<<<<< HEAD
 #UNK# I-neutral
+=======
+later O
+>>>>>>> unneeded commit
 was O
 #UNK# I-neutral
 of I-neutral
@@ -67388,6 +68059,7 @@ of I-neutral
 
 as O
 a O
+<<<<<<< HEAD
 japanese O
 #UNK# I-neutral
 , I-positive
@@ -67395,6 +68067,15 @@ japanese O
 lived O
 in I-negative
 the I-negative
+=======
+japanese B-positive
+#UNK# I-neutral
+, I-positive
+i've O
+lived O
+in I-negative
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 area I-positive
 for I-negative
@@ -67414,7 +68095,11 @@ place B-neutral
 . O
 
 for I-negative
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 people B-negative
 who O
 want O
@@ -67432,16 +68117,27 @@ to I-positive
 #UNK# I-neutral
 ! O
 
+<<<<<<< HEAD
 #UNK# I-neutral
+=======
+please O
+>>>>>>> unneeded commit
 don't O
 #UNK# I-neutral
 us O
 . O
 
+<<<<<<< HEAD
 #UNK# I-neutral
 down O
 , I-positive
 the I-negative
+=======
+hands O
+down O
+, I-positive
+the B-positive
+>>>>>>> unneeded commit
 best O
 tuna B-positive
 i O
@@ -67450,18 +68146,30 @@ ever O
 had O
 . O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 was O
 excellent O
 , I-positive
 especially O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 , I-positive
 as O
 were O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 pasta I-negative
 #UNK# I-neutral
@@ -67479,7 +68187,11 @@ we O
 sat O
 he O
 said O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 table I-positive
 was O
 #UNK# I-neutral
@@ -67496,6 +68208,7 @@ live B-positive
 nearby O
 . O
 
+<<<<<<< HEAD
 the I-negative
 soup I-positive
 for I-negative
@@ -67504,19 +68217,37 @@ the I-negative
 was O
 #UNK# I-neutral
 sauce B-negative
+=======
+the B-positive
+soup I-positive
+for I-negative
+the B-positive
+#UNK# I-neutral
+was O
+#UNK# I-neutral
+sauce I-negative
+>>>>>>> unneeded commit
 and I-neutral
 water I-negative
 . O
 
 #UNK# I-neutral
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 place B-neutral
 
 it O
 was O
 one O
 of I-neutral
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 few O
 places O
 in I-negative
@@ -67538,6 +68269,7 @@ a O
 
 outside B-positive
 in I-negative
+<<<<<<< HEAD
 the I-negative
 area I-positive
 #UNK# I-neutral
@@ -67546,6 +68278,16 @@ restaurant B-neutral
 and I-neutral
 the I-negative
 #UNK# I-neutral
+=======
+the B-positive
+area I-positive
+#UNK# I-neutral
+the B-positive
+restaurant B-neutral
+and I-neutral
+the B-positive
+park O
+>>>>>>> unneeded commit
 , I-positive
 #UNK# I-neutral
 were O
@@ -67563,8 +68305,13 @@ took O
 one O
 look O
 at O
+<<<<<<< HEAD
 the I-negative
 chicken B-negative
+=======
+the B-positive
+chicken I-positive
+>>>>>>> unneeded commit
 and I-neutral
 i O
 was O
@@ -67605,7 +68352,11 @@ after O
 they O
 #UNK# I-neutral
 me O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 last O
 time O
 i O
@@ -67628,8 +68379,13 @@ not O
 too O
 much O
 about O
+<<<<<<< HEAD
 the I-negative
 wait B-negative
+=======
+the B-positive
+wait B-positive
+>>>>>>> unneeded commit
 for I-negative
 a O
 table I-positive
@@ -67644,14 +68400,22 @@ this O
 restaurant B-neutral
 . O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 were O
 fantastic O
 and I-neutral
 so O
 was O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 dessert B-positive
 ... O
 definitely O
@@ -67667,7 +68431,11 @@ yes O
 , I-positive
 i O
 ate O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 food I-neutral
 , I-positive
 but O
@@ -67680,8 +68448,13 @@ if O
 i O
 had O
 seen O
+<<<<<<< HEAD
 the I-negative
 #UNK# I-neutral
+=======
+the B-positive
+maggot O
+>>>>>>> unneeded commit
 before O
 eating O
 , I-positive
@@ -67698,7 +68471,11 @@ my O
 stomach O
 . O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 place B-neutral
 was O
 nice O
@@ -67716,11 +68493,19 @@ of I-neutral
 5 O
 because O
 of I-neutral
+<<<<<<< HEAD
 the I-negative
 price I-positive
 ( I-positive
 just O
 chicken B-negative
+=======
+the B-positive
+price I-positive
+( I-positive
+just O
+chicken I-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 #UNK# I-neutral
 - I-positive
@@ -67741,7 +68526,11 @@ expect O
 at O
 a O
 #UNK# I-neutral
+<<<<<<< HEAD
 indian B-positive
+=======
+indian I-positive
+>>>>>>> unneeded commit
 restaurant B-neutral
 but O
 this O
@@ -67754,7 +68543,11 @@ feel B-positive
 . O
 
 our O
+<<<<<<< HEAD
 server B-positive
+=======
+server B-negative
+>>>>>>> unneeded commit
 was O
 very O
 #UNK# I-neutral
@@ -67764,9 +68557,15 @@ friendly O
 
 but O
 for I-negative
+<<<<<<< HEAD
 the I-negative
 #UNK# I-neutral
 #UNK# I-neutral
+=======
+the B-positive
+shabu I-positive
+shabu I-positive
+>>>>>>> unneeded commit
 , I-positive
 you O
 won't O
@@ -67774,7 +68573,11 @@ find O
 much O
 better O
 in I-negative
+<<<<<<< HEAD
 #UNK# I-neutral
+=======
+ny O
+>>>>>>> unneeded commit
 . O
 
 as O
@@ -67798,10 +68601,17 @@ so O
 usually O
 i O
 just O
+<<<<<<< HEAD
 go O
 to I-positive
 any O
 indian B-positive
+=======
+go I-negative
+to I-positive
+any O
+indian I-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 #UNK# I-neutral
 by I-negative
@@ -67833,7 +68643,11 @@ with I-positive
 my O
 #UNK# I-neutral
 of I-neutral
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 of I-neutral
 #UNK# I-neutral
@@ -67843,13 +68657,21 @@ group O
 
 #UNK# I-neutral
 has O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 best O
 service B-neutral
 and I-neutral
 atmosphere B-neutral
 in I-negative
+<<<<<<< HEAD
 #UNK# I-neutral
+=======
+nyc I-neutral
+>>>>>>> unneeded commit
 . O
 
 for I-negative
@@ -67871,7 +68693,11 @@ a O
 drink O
 . O
 
+<<<<<<< HEAD
 #UNK# I-neutral
+=======
+considering O
+>>>>>>> unneeded commit
 you O
 will O
 #UNK# I-neutral
@@ -67890,7 +68716,11 @@ service B-neutral
 
 this O
 is O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 perfect O
 spot O
 for I-negative
@@ -67940,12 +68770,20 @@ spot O
 once O
 you O
 #UNK# I-neutral
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 #UNK# I-neutral
 #UNK# I-neutral
 , I-positive
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 and I-neutral
 intimate O
@@ -67961,26 +68799,42 @@ you O
 no O
 #UNK# I-neutral
 in I-negative
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 city I-positive
 . O
 
 even O
 though O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 place B-neutral
 is O
 not O
 beautiful O
 , I-positive
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 food I-neutral
 #UNK# I-neutral
 for I-negative
 #UNK# I-neutral
 . O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 #UNK# I-neutral
 are O
@@ -68022,7 +68876,11 @@ i O
 this O
 #UNK# I-neutral
 place B-neutral
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 other O
 night I-positive
 and I-neutral
@@ -68037,15 +68895,26 @@ was O
 very O
 cozy O
 and I-neutral
+<<<<<<< HEAD
 #UNK# I-neutral
 . O
 
 the I-negative
+=======
+cute O
+. O
+
+the B-positive
+>>>>>>> unneeded commit
 atmosphere B-neutral
 is O
 #UNK# I-neutral
 and I-neutral
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 waiters O
 are O
 #UNK# I-neutral
@@ -68054,7 +68923,11 @@ around O
 #UNK# I-neutral
 things O
 as O
+<<<<<<< HEAD
 fast O
+=======
+fast I-positive
+>>>>>>> unneeded commit
 as O
 they O
 can O
@@ -68073,7 +68946,11 @@ being O
 #UNK# I-neutral
 . O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 restaurant B-neutral
 has O
@@ -68087,7 +68964,11 @@ it O
 it O
 is O
 one O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 outdoor B-positive
 restaurants O
@@ -68104,14 +68985,22 @@ and I-neutral
 this O
 place B-neutral
 #UNK# I-neutral
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 in I-negative
 my O
 #UNK# I-neutral
 . O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 two O
 #UNK# I-neutral
 #UNK# I-neutral
@@ -68129,7 +69018,11 @@ place B-neutral
 
 a O
 cool O
+<<<<<<< HEAD
 bar I-positive
+=======
+bar B-negative
+>>>>>>> unneeded commit
 with I-positive
 great O
 food I-neutral
@@ -68160,7 +69053,11 @@ too O
 #UNK# I-neutral
 . O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 menu I-neutral
 is O
 very O
@@ -68185,7 +69082,11 @@ he O
 is O
 going O
 to I-positive
+<<<<<<< HEAD
 go O
+=======
+go I-negative
+>>>>>>> unneeded commit
 #UNK# I-neutral
 at O
 any O
@@ -68208,11 +69109,19 @@ but O
 it O
 really O
 #UNK# I-neutral
+<<<<<<< HEAD
 the I-negative
 spot O
 on I-positive
 a O
 #UNK# I-neutral
+=======
+the B-positive
+spot O
+on I-positive
+a O
+sunday O
+>>>>>>> unneeded commit
 #UNK# I-neutral
 ! O
 
@@ -68237,30 +69146,48 @@ a O
 bathroom I-negative
 #UNK# I-neutral
 in I-negative
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 which O
 was O
 #UNK# I-neutral
 . O
 
+<<<<<<< HEAD
 the I-negative
 hot B-positive
 #UNK# I-neutral
+=======
+the B-positive
+hot B-positive
+dogs I-positive
+>>>>>>> unneeded commit
 are O
 good B-positive
 , I-positive
 yes O
 , I-positive
 but O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 reason O
 to I-positive
 get O
 over I-positive
 here O
 is O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 fantastic O
 pork I-negative
 #UNK# I-neutral
@@ -68296,7 +69223,11 @@ to I-positive
 #UNK# I-neutral
 . O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 food I-neutral
 is O
 prepared O
@@ -68308,14 +69239,24 @@ and I-neutral
 this O
 place B-neutral
 has O
+<<<<<<< HEAD
 the I-negative
 best O
 #UNK# I-neutral
+=======
+the B-positive
+best O
+chinese B-positive
+>>>>>>> unneeded commit
 style I-positive
 #UNK# I-neutral
 #UNK# I-neutral
 in I-negative
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 city I-positive
 . O
 
@@ -68365,16 +69306,27 @@ a O
 little O
 #UNK# I-neutral
 from O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 sake I-positive
 but O
 #UNK# I-neutral
 that O
 what O
+<<<<<<< HEAD
 #UNK# I-neutral
 nights O
 with I-positive
 the I-negative
+=======
+saturday O
+nights O
+with I-positive
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 are O
 all O
@@ -68407,7 +69359,11 @@ in I-negative
 , I-positive
 #UNK# I-neutral
 or I-negative
+<<<<<<< HEAD
 #UNK# I-neutral
+=======
+later O
+>>>>>>> unneeded commit
 #UNK# I-neutral
 have O
 #UNK# I-neutral
@@ -68422,7 +69378,11 @@ establishment B-positive
 
 as O
 #UNK# I-neutral
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 didn't O
 #UNK# I-neutral
@@ -68465,10 +69425,17 @@ a O
 
 i O
 think O
+<<<<<<< HEAD
 #UNK# I-neutral
 had O
 some O
 the I-negative
+=======
+i've O
+had O
+some O
+the B-positive
+>>>>>>> unneeded commit
 best O
 meals O
 of I-neutral
@@ -68486,7 +69453,11 @@ great O
 spot O
 . O
 
+<<<<<<< HEAD
 #UNK# I-neutral
+=======
+i'll O
+>>>>>>> unneeded commit
 keep O
 this O
 #UNK# I-neutral
@@ -68499,14 +69470,24 @@ favorite O
 ! O
 ! O
 
+<<<<<<< HEAD
 #UNK# I-neutral
+=======
+i'd O
+>>>>>>> unneeded commit
 #UNK# I-neutral
 for I-negative
 #UNK# I-neutral
 to I-positive
+<<<<<<< HEAD
 go O
 to I-positive
 #UNK# I-neutral
+=======
+go I-negative
+to I-positive
+park O
+>>>>>>> unneeded commit
 #UNK# I-neutral
 and I-neutral
 think O
@@ -68583,13 +69564,21 @@ enjoy O
 your O
 meal B-negative
 and I-neutral
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 you're O
 with I-positive
 . O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 pizza I-neutral
 is O
 overpriced O
@@ -68599,17 +69588,28 @@ and I-neutral
 
 you O
 can't O
+<<<<<<< HEAD
 go O
+=======
+go I-negative
+>>>>>>> unneeded commit
 wrong O
 here O
 . O
 
 i O
 #UNK# I-neutral
+<<<<<<< HEAD
 the I-negative
 meal B-negative
 with I-positive
 the I-negative
+=======
+the B-positive
+meal B-negative
+with I-positive
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 dessert B-positive
 of I-neutral
@@ -68623,7 +69623,11 @@ yummy O
 ! O
 
 but O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 best O
 pork I-negative
 #UNK# I-neutral
@@ -68631,7 +69635,11 @@ i O
 ever O
 had O
 is O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 main I-negative
 thing O
 . O
@@ -68675,12 +69683,20 @@ be O
 completely O
 #UNK# I-neutral
 , I-positive
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 only O
 #UNK# I-neutral
 #UNK# I-neutral
 was O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 food I-neutral
 , I-positive
 which O
@@ -68694,14 +69710,22 @@ make O
 up O
 for I-negative
 all O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 other O
 #UNK# I-neutral
 of I-neutral
 #UNK# I-neutral
 . O
 
+<<<<<<< HEAD
 #UNK# I-neutral
+=======
+terrible O
+>>>>>>> unneeded commit
 service B-neutral
 , I-positive
 food I-neutral
@@ -68709,13 +69733,21 @@ ok O
 , I-positive
 pricey O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 place B-neutral
 is O
 so O
 cool O
 and I-neutral
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 service B-neutral
 is O
 prompt O
@@ -68725,7 +69757,11 @@ and I-neutral
 
 this O
 is O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 kind O
 of I-neutral
 place B-neutral
@@ -68754,31 +69790,51 @@ us O
 went O
 there O
 for I-negative
+<<<<<<< HEAD
 #UNK# I-neutral
+=======
+sunday O
+>>>>>>> unneeded commit
 brunch O
 and I-neutral
 sat O
 outside B-positive
 . O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 food I-neutral
 was O
 actually O
 #UNK# I-neutral
 . O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 service B-neutral
 was O
 spectacular O
 as O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 waiter O
 #UNK# I-neutral
 everything O
 about O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 menu I-neutral
 and I-neutral
 his O
@@ -68804,7 +69860,11 @@ and I-neutral
 
 i O
 had O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 #UNK# I-neutral
 plate I-positive
 and I-neutral
@@ -68814,7 +69874,11 @@ it O
 . O
 
 love O
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 food I-neutral
 . O
 
@@ -68825,16 +69889,28 @@ romantic O
 #UNK# I-neutral
 is O
 at O
+<<<<<<< HEAD
 the I-negative
 top I-positive
 of I-neutral
 my O
 #UNK# I-neutral
+=======
+the B-positive
+top I-positive
+of I-neutral
+my O
+manhattan O
+>>>>>>> unneeded commit
 restaurant B-neutral
 list I-negative
 . O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 steak O
 was O
 done O
@@ -68853,7 +69929,11 @@ and I-neutral
 #UNK# I-neutral
 . O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 three O
 of I-neutral
 us O
@@ -68889,7 +69969,11 @@ great O
 menu I-neutral
 , I-positive
 #UNK# I-neutral
+<<<<<<< HEAD
 #UNK# I-neutral
+=======
+ingredients B-positive
+>>>>>>> unneeded commit
 , I-positive
 #UNK# I-neutral
 fish I-negative
@@ -68931,7 +70015,11 @@ my O
 favorite O
 place B-neutral
 in I-negative
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 neighborhood B-positive
 . O
 
@@ -68954,7 +70042,11 @@ only O
 one O
 place B-neutral
 on I-positive
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 east B-positive
 #UNK# I-neutral
 that O
@@ -68979,7 +70071,11 @@ some O
 #UNK# I-neutral
 . O
 
+<<<<<<< HEAD
 the I-negative
+=======
+the B-positive
+>>>>>>> unneeded commit
 food I-neutral
 was O
 great O
