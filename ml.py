@@ -10,7 +10,7 @@ def parse_train(filename):
 	tags = []
 	pairs = []
 	words = []
-	f = open(filename, 'r')
+	f = open(filename, 'r', encoding = 'UTF-8')
 	res = []
 	found = False
 	for k in f:
@@ -35,7 +35,7 @@ def parse_train_lower(filename):
 	tags = []
 	pairs = []
 	words = []
-	f = open(filename, 'r')
+	f = open(filename, 'r', encoding = 'UTF-8')
 	res = []
 	found = False
 	for k in f:
@@ -111,7 +111,7 @@ def emission_param_preprocess(data):
 #parser creates [[{word:None},{word:None}],[{word:None},{word:None}]], separating sentences. 
 #parser requires that you end with 2 newlines at the end of the file. (same as the dev.in)
 def parser (filename):
-	file = open(filename,'r')
+	file = open(filename,'r', encoding = 'UTF-8')
 	entiredata = []
 	sentence = []
 
@@ -158,7 +158,7 @@ def convert_back(p_data):
 	return output
 	
 def output_file(data,fileName):
-    file = open(fileName,"a")
+    file = open(fileName,"a", encoding = 'UTF-8')
     file.write(data)
     file.close()
 	
@@ -184,7 +184,7 @@ Part 3
 '''
 
 def get_transition_params(filename):
-	f = open(filename, 'r')
+	f = open(filename, 'r', encoding = 'UTF-8')
 	tags = ['START', 'O', 'B-positive', 'B-neutral', 'B-negative', 'I-positive', 'I-neutral', 'I-negative', 'STOP']
 	currentTag = 'START'
 	tagCount = [1,0,0,0,0,0,0,0,0]
