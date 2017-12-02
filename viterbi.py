@@ -38,7 +38,7 @@ class Viterbi:
 		return self.e[0]["#UNK#"][v]
 
 	def __viterbi_backtrack(self,pi,post,seq):
-		if len(pi) == 1:
+		if len(pi) == 0:
 			return []
 		vals = [{'p':pi[-1]*self.__get_transition_param(v,post)*self.__get_emission_param(seq,len(seq)-1,v),'v':v} for v in self.t['tags'][1:-1]]
 		o = max(vals,key=lambda x:x['p'])

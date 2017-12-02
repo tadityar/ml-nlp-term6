@@ -207,17 +207,13 @@ def v_result_parse(v_out,seq):
 tp = get_transition_params(r'EN\train')
 
 seq = parser(r'EN\dev.in')
-<<<<<<< HEAD
 # print (seq)
-v = ForwardBackward(tp,ep)
-v_out = []
-=======
-
 v = Viterbi(tp,ep)
+v_out = []
 
->>>>>>> unneeded commit
 for s in seq:
 	out = v.assign(s)
+	print (out)
 	# print (out)
 	v_out.append(out)
 	# print (v_out)
