@@ -204,15 +204,17 @@ def get_transition_params(filename):
 		words = line.split()
 		if len(words) > 0:
 			tagTransitionCount[tags.index(currentTag)][tags.index(words[1])] += 1
-			tagCount[tags.index(currentTag)] += 1
+			tagCount[tags.index(words[1])] += 1
 			currentTag = words[1]
 		else:
 			tagTransitionCount[tags.index(currentTag)][tags.index('STOP')] += 1
-			tagCount[tags.index(currentTag)] += 1
-			tagCount[-1] += 1
+			tagCount[tags.index('STOP')] += 1
 			currentTag = 'START'
 
 	# count transition params
+	# print (tagTransitionCount)
+	# print ("TAG COUNT HERE")
+	# print (tag_count)
 	for i in tagTransitionCount:
 		for j in range(len(i)):
 			i[j] = i[j]/tagCount[j]
@@ -236,24 +238,26 @@ def v_result_parse(v_out,seq):
 tp = get_transition_params(r'EN\train')
 
 seq = parser(r'EN\dev.in')
+# print(" ")
+# print (tp)
 
-print (tp)
+
 ### RUNNING VITERBI ###
-# v = Viterbi(tp,ep)
-# v_out = []
 
-# for s in seq:
-# 	out = v.assign(s)
-# 	print (out)
-# 	# print (out)
-# 	v_out.append(out)
-# 	# print (v_out)
-# v_seq = v_result_parse(v_out,seq)
-# # print (v_seq)
+v = Viterbi(tp,ep)
+v_out = []
 
-# output_to_file = convert_back(v_seq)
-# output_file(output_to_file,r'EN\dev.v.out')
-# print ("done")
+for s in seq:
+	out = v.assign(s)
+	v_out.append(out)
+v_seq = v_result_parse(v_out,seq)
+
+
+output_to_file = convert_back(v_seq)
+output_file(output_to_file,r'EN\dev.v.out')
+print ("done")
+
+
 
 # ### RUNNING FORWARDBACKWARD ###
 # v = ForwardBackward(tp,ep)
@@ -261,12 +265,6 @@ print (tp)
 # for s in seq:
 # 	out = v.assign(s)
 # 	v_out.append(out)
-v = Viterbi(tp,ep)
-v_out = []
-for s in seq:
-	out = v.assign(s)
-	print (out)
-	v_out.append(out)
 # v_seq = v_result_parse(v_out,seq)
 # output_to_file = convert_back(v_seq)
 # output_file(output_to_file,r'EN\dev.fb.out')
