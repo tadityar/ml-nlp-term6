@@ -200,29 +200,45 @@ def v_result_parse(v_out,seq):
 		for wordDict in sentence:
 			for key in wordDict:
 				wordDict[key] = v_out[sentenceCounter][wordCounter]
-		wordCounter += 1
-	sentenceCounter += 1
+			wordCounter += 1
+		sentenceCounter += 1
 	return (seq)
 
 tp = get_transition_params(r'EN\train')
 
 seq = parser(r'EN\dev.in')
-# print (seq)
-v = Viterbi(tp,ep)
-v_out = []
 
+
+### RUNNING VITERBI ###
+# v = Viterbi(tp,ep)
+# v_out = []
+
+# for s in seq:
+# 	out = v.assign(s)
+# 	print (out)
+# 	# print (out)
+# 	v_out.append(out)
+# 	# print (v_out)
+# v_seq = v_result_parse(v_out,seq)
+# # print (v_seq)
+
+# output_to_file = convert_back(v_seq)
+# output_file(output_to_file,r'EN\dev.v.out')
+# print ("done")
+
+# ### RUNNING FORWARDBACKWARD ###
+v = ForwardBackward(tp,ep)
+v_out = []
 for s in seq:
 	out = v.assign(s)
-	print (out)
-	# print (out)
 	v_out.append(out)
-	# print (v_out)
 v_seq = v_result_parse(v_out,seq)
-# print (v_seq)
-
 output_to_file = convert_back(v_seq)
-output_file(output_to_file,r'EN\dev.v.out')
+output_file(output_to_file,r'EN\dev.fb.out')
 print ("done")
+
+
+
 # p = viterbi(seq,-1,tp,ep)
 # print (p)
 
