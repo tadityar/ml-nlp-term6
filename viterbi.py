@@ -13,12 +13,14 @@ class Viterbi:
 		if state == -1:
 			return self.__viterbi_forward(seq,state+1,'START')
 		elif state < len(seq):
-			l = [{'val' : self.tree[state][v] if self.tree[state].get(v) else self.__viterbi_forward(seq,state+1,v), 'tag' : v, 'lst' : self.__get_transition_param(pre_t,v)*self.__get_emission_param(seq,state,v)} for v in self.t['tags'][1:-1]]
-			
-			for val in l:
+			values = []
+			for v in self.t['tags'][1:-1]:
+				lst = self.__get_transition_param(pre_t,v)*self.__get_emission_param(seq,state,v)
+				val = {'val' : self.tree[state][v] if self.tree[state].get(v) else self.__viterbi_forward(seq,state+1,v),'tag' : v, 'lst' : lst}
 				self.tree[state][val['tag']] = val['val']
+				values.append(val)				
 
-			o = max(l,key=lambda x:x['val'][-1]*x['lst'])
+			o = max(values,key=lambda x:x['val'][-1]*x['lst'])
 			return o['val'] + [o['val'][-1]*o['lst']]
 		else:
 			self.tree[state][pre_t] = [self.__get_transition_param(pre_t,'STOP')]
