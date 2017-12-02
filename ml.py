@@ -125,7 +125,7 @@ def parser (filename):
 			line = line.rstrip()
 			noneDict = {line.lower():"None"}
 			sentence.append(noneDict)
-	f.close()
+	file.close()
 	return entiredata
 
 #new tagging_words that works with the new parser above
@@ -237,7 +237,7 @@ tp = get_transition_params(r'EN\train')
 
 seq = parser(r'EN\dev.in')
 
-
+print (tp)
 ### RUNNING VITERBI ###
 # v = Viterbi(tp,ep)
 # v_out = []
@@ -256,15 +256,15 @@ seq = parser(r'EN\dev.in')
 # print ("done")
 
 # ### RUNNING FORWARDBACKWARD ###
-v = ForwardBackward(tp,ep)
-v_out = []
-for s in seq:
-	out = v.assign(s)
-	v_out.append(out)
-v_seq = v_result_parse(v_out,seq)
-output_to_file = convert_back(v_seq)
-output_file(output_to_file,r'EN\dev.fb.out')
-print ("done")
+# v = ForwardBackward(tp,ep)
+# v_out = []
+# for s in seq:
+# 	out = v.assign(s)
+# 	v_out.append(out)
+# v_seq = v_result_parse(v_out,seq)
+# output_to_file = convert_back(v_seq)
+# output_file(output_to_file,r'EN\dev.fb.out')
+# print ("done")
 
 
 
