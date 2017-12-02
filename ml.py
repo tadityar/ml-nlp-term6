@@ -95,7 +95,7 @@ def parser (filename):
 			sentence = []
 		else:
 			line = line.rstrip()
-			noneDict = {line:"None"}
+			noneDict = {line.lower():"None"}
 			sentence.append(noneDict)
 	return entiredata
 
@@ -192,17 +192,13 @@ def get_transition_params(filename):
 
 tp = get_transition_params(r'EN\train')
 
-seq = [
-	{'trump':None},
-	{'is':None},
-	{'a':None},
-	{'lier':None}
-]
+seq = parser(r'D:\ISTD 2017-2\01-ML\ml-nlp-term6\EN\dev.in')
 
 v = Viterbi(tp,ep)
-out = v.assign(seq)
 
-print (out)
+for s in seq:
+	out = v.assign(s)
+	print (out)
 
 # p = viterbi(seq,-1,tp,ep)
 # print (p)

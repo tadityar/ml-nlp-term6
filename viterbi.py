@@ -2,18 +2,26 @@ class Viterbi:
 	def __init__(self,t,e):
 		self.t = t
 		self.e = e
+		self.tree = []
 
 	#Please use this call to assign tags to the sequence
 	def assign(self,seq):
-		return self.__viterbi_backtrack(self.__viterbi_forward(seq,-1),'STOP')
-
+		self.tree = [{} for i in range(len(seq)+1)]
+		return self.__viterbi_backtrack(self.__viterbi_forward(seq,-1)[:-1],'STOP',seq)
+		
 	def __viterbi_forward(self,seq,state,pre_t=None):
 		if state == -1:
 			return self.__viterbi_forward(seq,state+1,'START')
 		elif state < len(seq):
-			mx = max([{'r' : self.__viterbi_forward(seq,state+1,v),'l':self.__get_transition_param(pre_t,v)*self.__get_emission_param(seq,state,v)} for v in self.t['tags']],key=lambda x:x['r'][-1]*x['l'])	
-			return mx['r'] + [mx['r'][-1]*mx['l']]
+			l = [{'val' : self.tree[state][v] if self.tree[state].get(v) else self.__viterbi_forward(seq,state+1,v), 'tag' : v, 'lst' : self.__get_transition_param(pre_t,v)*self.__get_emission_param(seq,state,v)} for v in self.t['tags'][1:-1]]
+			
+			for val in l:
+				self.tree[state][val['tag']] = val['val']
+
+			o = max(l,key=lambda x:x['val'][-1]*x['lst'])
+			return o['val'] + [o['val'][-1]*o['lst']]
 		else:
+			self.tree[state][pre_t] = [self.__get_transition_param(pre_t,'STOP')]
 			return [self.__get_transition_param(pre_t,'STOP')]
 
 	def __get_transition_param(self,u,v):
@@ -26,11 +34,12 @@ class Viterbi:
 					try:
 						return self.e[i][key][v]
 					except KeyError as er:
-						return 0
-		return 0
+						return self.e[0]["#UNK#"][v]
+		return self.e[0]["#UNK#"][v]
 
-	def __viterbi_backtrack(self,pi,post):
+	def __viterbi_backtrack(self,pi,post,seq):
 		if len(pi) == 1:
 			return []
-		o = max([{'p':pi[-1]*self.__get_transition_param(v,post),'v':v} for v in self.t['tags']],key=lambda x:x['p'])
-		return [o['v']] +self.__viterbi_backtrack(pi[:-1],o['v'])
+		vals = [{'p':pi[-1]*self.__get_transition_param(v,post)*self.__get_emission_param(seq,len(seq)-1,v),'v':v} for v in self.t['tags'][1:-1]]
+		o = max(vals,key=lambda x:x['p'])
+		return self.__viterbi_backtrack(pi[:-1],o['v'],seq[:-1]) + [o['v']]
