@@ -5,7 +5,34 @@ from viterbi import Viterbi
 '''
 Part 2
 '''
+# parse data
 def parse_train(filename):
+	tags = []
+	pairs = []
+	words = []
+	f = open(filename, 'r')
+	res = []
+	found = False
+	for k in f:
+		k = k.split()
+		if len(k) > 0:
+			k[0] = k[0]
+			tags.append(k[1])
+			for i in res:
+				if k[0] in i:
+					found = True
+					if k[1] not in i[k[0]]:
+						i[k[0]][k[1]] = 1
+					else:
+						i[k[0]][k[1]] += 1
+			if not found:
+				res.append({k[0]: {k[1]: 1}})
+			found = False
+	tags_count = Counter(tags)
+	return res, tags_count
+
+# parse data by lowercasing everything
+def parse_train_lowercase(filename):
 	tags = []
 	pairs = []
 	words = []
