@@ -29,6 +29,7 @@ def parse_train(filename):
 				res.append({k[0]: {k[1]: 1}})
 			found = False
 	tags_count = Counter(tags)
+	f.close()
 	return res, tags_count
 
 def parse_train_lower(filename):
@@ -54,6 +55,7 @@ def parse_train_lower(filename):
 				res.append({k[0]: {k[1]: 1}})
 			found = False
 	tags_count = Counter(tags)
+	f.close()
 	return res, tags_count
 
 # Give emission parameters
@@ -123,6 +125,7 @@ def parser (filename):
 			line = line.rstrip()
 			noneDict = {line.lower():"None"}
 			sentence.append(noneDict)
+	f.close()
 	return entiredata
 
 #new tagging_words that works with the new parser above
@@ -214,6 +217,7 @@ def get_transition_params(filename):
 		for j in range(len(i)):
 			i[j] = i[j]/tagCount[j]
 	result = {'tags': tags, 'map': tagTransitionCount}
+	f.close()
 	return result
 
 ##Writing a function to assign the viterbi output back to the seq
