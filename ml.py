@@ -108,17 +108,15 @@ def process_unknown_words_testing(inp,model):
 def emission_param_preprocess(data):
 	wordAndTag = {}
 	for wordset in data:
-		for word in wordset:
-			for tag in wordset[word]:
-				highestVal = 0
-				if wordset[word][tag]>highestVal:
-					highestVal = wordset[word][tag]
-					highestTag = tag
-			# print (word,highestTag,highestVal)
-			wordAndTag.update({word:highestTag})
+		highestVal = 0
+		for tag in data[wordset]:
+			value = data[wordset][tag]
+			if value>highestVal:
+				highestVal = value
+				highestTag = tag
+		wordAndTag.update({wordset:highestTag})
 	return wordAndTag
 
-	
 #parser creates [[{word:None},{word:None}],[{word:None},{word:None}]], separating sentences. 
 #parser requires that you end with 2 newlines at the end of the file. (same as the dev.in)
 def parser (filename):
