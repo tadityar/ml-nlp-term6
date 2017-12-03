@@ -325,7 +325,7 @@ seq = parser(r'EN/dev.in')
 
 
 ### RUNNING VITERBI ###
-ep = [{'!': {'B-negative': Fraction(0, 1),
+ep = {'!': {'B-negative': Fraction(0, 1),
        'B-neutral': Fraction(0, 1),
        'B-positive': Fraction(0, 1),
        'I-negative': Fraction(0, 1),
@@ -8024,7 +8024,7 @@ ep = [{'!': {'B-negative': Fraction(0, 1),
        'I-negative': Fraction(0, 1),
        'I-neutral': Fraction(1, 23),
        'I-positive': Fraction(2, 607),
-       'O': Fraction(7, 12121)}}]
+       'O': Fraction(7, 12121)}}
 v = Viterbi(ep,tp)
 print(seq[0])
 v.init_dp_table(seq[0])

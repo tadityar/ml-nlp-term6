@@ -8,7 +8,7 @@ class Viterbi:
 		self.tags = tp['tags']
 
 	def init_dp_table(self, sentence):
-		self.dp_table.append([1,0,0,0,0,0,0,0,0])
+		self.dp_table.append([0,1,0,0,0,0,0,0,0])
 		for word in sentence:
 			self.dp_table.append([0,0,0,0,0,0,0,0,0])
 		self.dp_table.append([0,0,0,0,0,0,0,0,0])
@@ -36,17 +36,16 @@ class Viterbi:
 			return dp
 
 	def get_emission(self, word, tag):
-		for i in range(len(self.ep)):
-			if word in self.ep[i]:
-				if tag in self.ep[i][word]:
-					return self.ep[i][word][tag]
-				else:
-					if tag == 'START' or tag == 'STOP':
-						return 0
-					return self.ep[0]["#UNK#"][tag]
+		if word in self.ep:
+			if tag in self.ep[word]:
+				return self.ep[word][tag]
+			else:
+				if tag == 'START' or tag == 'STOP':
+					return 0
+				return self.ep["#UNK#"][tag]
 		if tag == 'START' or tag == 'STOP':
 			return 0
-		return self.ep[0]["#UNK#"][tag]
+		return self.ep["#UNK#"][tag]
 
 	def get_transmission(self, initial, final):
 		# return self.t[v][u]
