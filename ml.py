@@ -169,19 +169,19 @@ def output_file(data,fileName):
 	
 	
 #training	
-words_count, tag_count = parse_train(r'EN\train')
+words_count, tag_count = parse_train(r'EN/train')
 words_count = process_unknown_words(words_count,3)
 ep = get_emission_params(words_count, tag_count)
 
 # #testing
-data = parser(r'EN\dev.in')
+data = parser(r'EN/dev.in')
 data_p = process_unknown_words_testing(data,words_count)
 ep_p = emission_param_preprocess(ep)
 tagged_words = tagging_words(ep_p,data_p)
 
 #testing vs actual output
 # output_to_file = convert_back(tagged_words)
-# output_file(output_to_file,r'EN\dev.p2.out')
+# output_file(output_to_file,r'EN/dev.p2.out')
 
 
 '''
@@ -192,14 +192,14 @@ def get_transition_params(filename):
 	f = open(filename, 'r', encoding = 'UTF-8')
 	tags = ['START', 'O', 'B-positive', 'B-neutral', 'B-negative', 'I-positive', 'I-neutral', 'I-negative', 'STOP']
 	currentTag = 'START'
-	tagCount = [1,0,0,0,0,0,0,0,0]
-	tagTransitionCount = []
+	tagCount = [0,0,0,0,0,0,0,0,0]
+	tagTransitionCount = {}
 	# initialise tagTransitionCount
 	for i in tags:
-		inner = []
+		inner = {}
 		for j in tags:
-			inner.append(0)
-		tagTransitionCount.append(inner)
+			inner[j] = 0
+		tagTransitionCount[i] = inner
 
 	# count transitions and tags
 	for line in f:
@@ -207,26 +207,24 @@ def get_transition_params(filename):
 		if len(words) > 0:
 			if currentTag == 'START':
 				tagCount[tags.index('START')] += 1
-				tagTransitionCount[tags.index(currentTag)][tags.index(words[1])] += 1
+				tagTransitionCount[words[1]][currentTag] += 1
 				tagCount[tags.index(words[1])] += 1
 				currentTag = words[1]
 			else:
-				tagTransitionCount[tags.index(currentTag)][tags.index(words[1])] += 1
+				tagTransitionCount[words[1]][currentTag] += 1
 				tagCount[tags.index(words[1])] += 1
 				currentTag = words[1]
 		else:
-			tagTransitionCount[tags.index(currentTag)][tags.index('STOP')] += 1
+			tagTransitionCount['STOP'][currentTag] += 1
 			tagCount[tags.index('STOP')] += 1
 			currentTag = 'START'
 			tagCount[tags.index('START')] += 1 
 
 	# count transition params
-	# print (tagTransitionCount)
-	# print ("TAG COUNT HERE")
-	# print (tag_count)
-	for i in range(len(tagTransitionCount)):
-		for j in range(len(tagTransitionCount[i])):
-			tagTransitionCount[i][j] = tagTransitionCount[i][j]/tagCount[i]
+	for final, val in tagTransitionCount.items():
+		for initial, val_p in tagTransitionCount[final].items():
+			tagTransitionCount[final][initial] = Fraction(val_p, tagCount[tags.index(initial)])
+
 	result = {'tags': tags, 'map': tagTransitionCount}
 
 	f.close()
@@ -245,19 +243,7 @@ def v_result_parse(v_out,seq):
 		sentenceCounter += 1
 	return (seq)
 
-tp = get_transition_params(r'EN\train')
-
-tp['map'] = [
-		[0.0, Fraction(82, 1873), Fraction(10, 1873), Fraction(20, 1873), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1)],
-		[0.0, Fraction(20851, 24242), Fraction(563, 12121), Fraction(55, 24242), Fraction(181, 12121), Fraction(0, 1),Fraction(0, 1),Fraction(0, 1),Fraction(924, 12121)],
-		[0.0, Fraction(104, 151), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(45, 151), Fraction(0, 1), Fraction(0, 1), Fraction(2, 151)],
-		[0.0, Fraction(51, 65), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(1, 5), Fraction(0, 1), Fraction(1, 65)],
-		[0.0, Fraction(299, 382), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(40, 191), Fraction(3, 382)],
-		[0.0, Fraction(355, 607), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(247, 607), Fraction(0, 1), Fraction(0, 1), Fraction(5, 607)],
-		[0.0, Fraction(13, 23), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(10, 23), Fraction(0, 1), Fraction(0, 1)],
-		[0.0, Fraction(80, 133), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(53, 133), Fraction(0, 1)],
-		[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-	]
+tp = get_transition_params(r'EN/train')
 
 ep = {'!': {'B-negative': Fraction(0, 1),
        'B-neutral': Fraction(0, 1),
@@ -7960,9 +7946,9 @@ ep = {'!': {'B-negative': Fraction(0, 1),
        'I-positive': Fraction(2, 607),
        'O': Fraction(7, 12121)}}
 
-seq = parser(r'EN\dev.in')
+seq = parser(r'EN/dev.in')
 # print(" ")
-print (tp)
+# print (tp)
 
 
 # ### RUNNING VITERBI ###
@@ -7973,13 +7959,13 @@ v_out = []
 for s in seq:
 	out = v.assign(s)
 	v_out.append(out)
-	print (out)
+	# print (out)
 
 v_seq = v_result_parse(v_out,seq)
 
 
 output_to_file = convert_back(v_seq)
-output_file(output_to_file,r'EN\dev.v4.out')
+output_file(output_to_file,r'EN/dev.v4.out')
 print ("done")
 
 
@@ -7992,7 +7978,7 @@ print ("done")
 # 	v_out.append(out)
 # v_seq = v_result_parse(v_out,seq)
 # output_to_file = convert_back(v_seq)
-# output_file(output_to_file,r'EN\dev.fb.out')
+# output_file(output_to_file,r'EN/dev.fb.out')
 # print ("done")
 
 
