@@ -68,7 +68,10 @@ def get_emission_params(wordsCount, tagCount):
 	wordsCountP = copy.deepcopy(wordsCount)
 	for word, tags_dict in wordsCountP.items():
 		for tag, value in tags_dict.items():
-			wordsCountP[word][tag] = Fraction(value, tagCount[tag])
+			if tagCount[tag] != 0:
+				wordsCountP[word][tag] = Fraction(value, tagCount[tag])
+			else:
+				wordsCountP[word][tag] = Fraction(0, 1)
 	return wordsCountP
 
 
@@ -175,9 +178,9 @@ def output_file(data,fileName):
 #training	
 words_count, tag_count = parse_train(r'EN/train')
 # words_count = process_unknown_words(words_count,3)
-# ep = get_emission_params(words_count, tag_count)
+ep = get_emission_params(words_count, tag_count)
 
-print(words_count)
+# print(words_count)
 # #testing
 data = parser(r'EN/dev.in')
 data_p = process_unknown_words_testing(data,words_count)
