@@ -13,22 +13,22 @@ def parse_train(filename):
 	pairs = []
 	words = []
 	f = open(filename, 'r', encoding = 'UTF-8')
-	res = []
+	res = {}
 	found = False
-	for k in f:
-		k = k.split()
-		if len(k) > 0:
-			k[0] = k[0]
-			tags.append(k[1])
-			for i in res:
-				if k[0] in i:
-					found = True
-					if k[1] not in i[k[0]]:
-						i[k[0]][k[1]] = 1
+	for line in f:
+		line = line.split()
+		if len(line) > 0:
+			word = k[0]
+			tag = k[1]
+			tags.append(line[1])
+			if word in res:
+				found = True
+				if tag not in res[word]:
+						res[word][tag] = 1
 					else:
-						i[k[0]][k[1]] += 1
+						res[word][tag] += 1
 			if not found:
-				res.append({k[0]: {k[1]: 1}})
+				res[k[0]][k[1]] = 1
 			found = False
 	tags_count = Counter(tags)
 	f.close()
@@ -63,10 +63,9 @@ def parse_train_lower(filename):
 # Give emission parameters
 def get_emission_params(wordsCount, tagCount):
 	wordsCountP = copy.deepcopy(wordsCount)
-	for l in wordsCountP:
-		for k, v in l.items():
-			for i, j in v.items():
-				v[i] = j/tagCount[i]
+	for word, tags_dict in wordsCountP.items():
+		for tag, value in tags_dict.items():
+			wordsCountP[word][tag] = Fraction(value, tagCount[tag])
 	return wordsCountP
 
 #Given a certain input of most frequent words and their tags, classifies the least N occuring words into a #UNK# unknown field
