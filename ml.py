@@ -18,17 +18,20 @@ def parse_train(filename):
 	for line in f:
 		line = line.split()
 		if len(line) > 0:
-			word = k[0]
-			tag = k[1]
-			tags.append(line[1])
+			word = line[0]
+			tag = line[1]
+			tags.append(tag)
 			if word in res:
 				found = True
 				if tag not in res[word]:
-						res[word][tag] = 1
-					else:
-						res[word][tag] += 1
+					res[word][tag] = 1
+				else:
+					res[word][tag] += 1
 			if not found:
-				res[k[0]][k[1]] = 1
+				res[word] = {tag: 1}
+				for i in ['START', 'O', 'B-positive', 'B-neutral', 'B-negative', 'I-positive', 'I-neutral', 'I-negative', 'STOP']:
+					if i not in res[word]:
+						res[word][i] = 0
 			found = False
 	tags_count = Counter(tags)
 	f.close()
@@ -67,6 +70,8 @@ def get_emission_params(wordsCount, tagCount):
 		for tag, value in tags_dict.items():
 			wordsCountP[word][tag] = Fraction(value, tagCount[tag])
 	return wordsCountP
+
+
 
 #Given a certain input of most frequent words and their tags, classifies the least N occuring words into a #UNK# unknown field
 def process_unknown_words(f,n):
@@ -169,9 +174,10 @@ def output_file(data,fileName):
 	
 #training	
 words_count, tag_count = parse_train(r'EN/train')
-words_count = process_unknown_words(words_count,3)
-ep = get_emission_params(words_count, tag_count)
+# words_count = process_unknown_words(words_count,3)
+# ep = get_emission_params(words_count, tag_count)
 
+print(words_count)
 # #testing
 data = parser(r'EN/dev.in')
 data_p = process_unknown_words_testing(data,words_count)
