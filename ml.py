@@ -7967,7 +7967,7 @@ print (tp)
 
 # ### RUNNING VITERBI ###
 
-v = ForwardBackward(tp,ep)
+v = Viterbi(tp,ep)
 v_out = []
 
 for s in seq:
@@ -7978,7 +7978,7 @@ v_seq = v_result_parse(v_out,seq)
 
 
 output_to_file = convert_back(v_seq)
-output_file(output_to_file,r'EN\dev.fb2.out')
+output_file(output_to_file,r'EN\dev.v3.out')
 print ("done")
 
 

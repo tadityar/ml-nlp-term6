@@ -42,22 +42,30 @@ class Viterbi:
 		###### IMP 3 #######
 	def __viterbi_forward(self,seq,state,pre_t=None):
 		if state == -1:
-			return self.__viterbi_forward(seq,state+1,'START')
-		elif state < len(seq):
-			values = []
+			self.tree[state+1]['START'] = 1
+			tag, seq = self.__viterbi_forward(seq,state+1)
+			return [1] + seq
+
+		elif state < len(seq)-1:
+			
+			saved_u_values = {}
+
 			for v in self.t['tags'][1:-1]:
-				lst = self.__get_transition_param(pre_t,v)*self.__get_emission_param(seq,state,v)
-				result = self.tree[state+1][v] if self.tree[state+1].get(v) else self.__viterbi_forward(seq,state+1,v)
-				val = {'val' : result,'tag' : v, 'lst' : lst}
-				self.tree[state][val['tag']] = val['val'] + [val['val'][-1]*val['lst']]
-				values.append(val)				
+				vals = [{'prob':self.tree[state][u]*self.__get_transition_param(u,v)*self.__get_emission_param(seq,state+1,v),'tag' : u} for u in self.tree[state]]
+				mx = max(vals,key=lambda x:x['prob'])
+				self.tree[state+1][v] = mx['prob']
+				saved_u_values[v] = mx['tag']
 
-			o = max(values,key=lambda x:x['val'][-1]*x['lst'])
-			return o['val'] + [o['val'][-1]*o['lst']]
+			tag, seq =  self.__viterbi_forward(seq,state+1)
+
+			for v in self.tree[state+1]:
+				if v == tag:
+					return saved_u_values[v], [self.tree[state+1][v]] + seq
+
 		else:
-			self.tree[state][pre_t] = [self.__get_transition_param(pre_t,'STOP')]
-			return [self.__get_transition_param(pre_t,'STOP')]
-
+			vals = [{'prob' : self.tree[state][v]*self.__get_transition_param(v,'STOP'),'tag' : v} for v in self.tree[state]]
+			mx = max(vals,key=lambda x:x['prob'])
+			return mx['tag'], [mx['prob']]
 
 	def __get_transition_param(self,u,v):
 		return self.t['map'][self.t['tags'].index(u)][self.t['tags'].index(v)]
