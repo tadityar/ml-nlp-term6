@@ -59,12 +59,12 @@ def parse_train_lower(filename):
 	return res, tags_count
 
 # Give emission parameters
-def get_emission_params(wordsCount, tagsCount):
+def get_emission_params(wordsCount, tagCount):
 	wordsCountP = copy.deepcopy(wordsCount)
 	for l in wordsCountP:
 		for k, v in l.items():
 			for i, j in v.items():
-				v[i] = j/tagsCount[i]
+				v[i] = j/tagCount[i]
 	return wordsCountP
 
 #Given a certain input of most frequent words and their tags, classifies the least N occuring words into a #UNK# unknown field
@@ -203,22 +203,25 @@ def get_transition_params(filename):
 	for line in f:
 		words = line.split()
 		if len(words) > 0:
-			tagTransitionCount[tags.index(currentTag)][tags.index(words[1])] += 1
-			tagCount[tags.index(words[1])] += 1
-			currentTag = words[1]
+			if currentTag == 'START':
+				tagCount[tags.index('START')] += 1
+				tagTransitionCount[tags.index(currentTag)][tags.index(words[1])] += 1
+				tagCount[tags.index(words[1])] += 1
+				currentTag = words[1]
+			else:
+				tagTransitionCount[tags.index(currentTag)][tags.index(words[1])] += 1
+				tagCount[tags.index(words[1])] += 1
+				currentTag = words[1]
 		else:
 			tagTransitionCount[tags.index(currentTag)][tags.index('STOP')] += 1
 			tagCount[tags.index('STOP')] += 1
 			currentTag = 'START'
 
-	# count transition params
-	# print (tagTransitionCount)
-	# print ("TAG COUNT HERE")
-	# print (tag_count)
-	for i in tagTransitionCount:
-		for j in range(len(i)):
-			i[j] = i[j]/tagCount[j]
+	for i in range(len(tagTransitionCount)):
+		for j in range(len(tagTransitionCount[i])):
+			tagTransitionCount[i][j] = tagTransitionCount[i][j]/tagCount[i]
 	result = {'tags': tags, 'map': tagTransitionCount}
+
 	f.close()
 	return result
 
@@ -239,10 +242,10 @@ tp = get_transition_params(r'EN\train')
 
 seq = parser(r'EN\dev.in')
 # print(" ")
-# print (tp)
+print (tp)
 
 
-### RUNNING VITERBI ###
+# ### RUNNING VITERBI ###
 
 v = Viterbi(tp,ep)
 v_out = []
@@ -250,12 +253,13 @@ v_out = []
 for s in seq:
 	out = v.assign(s)
 	v_out.append(out)
-v_seq = v_result_parse(v_out,seq)
+print (v_out)
+# v_seq = v_result_parse(v_out,seq)
 
 
-output_to_file = convert_back(v_seq)
-output_file(output_to_file,r'EN\dev.v.out')
-print ("done")
+# output_to_file = convert_back(v_seq)
+# output_file(output_to_file,r'EN\dev.v.out')
+# print ("done")
 
 
 
