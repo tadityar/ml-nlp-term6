@@ -7,7 +7,8 @@ class Viterbi:
 	#Please use this call to assign tags to the sequence
 	def assign(self,seq):
 		self.tree = [{} for i in range(len(seq)+1)]
-		out = self.__viterbi_backtrack(self.__viterbi_forward(seq,-1)[:-1],'STOP',seq)
+		self.__viterbi_forward(seq,-1)
+		out = self.__viterbi_backtrack(len(seq),seq)
 		return out
 		
 		# if state == -1:
@@ -43,29 +44,20 @@ class Viterbi:
 	def __viterbi_forward(self,seq,state,pre_t=None):
 		if state == -1:
 			self.tree[state+1]['START'] = 1
-			tag, seq = self.__viterbi_forward(seq,state+1)
-			return [1] + seq
+			self.__viterbi_forward(seq,state+1)
 
 		elif state < len(seq)-1:
-			
-			saved_u_values = {}
-
 			for v in self.t['tags'][1:-1]:
 				vals = [{'prob':self.tree[state][u]*self.__get_transition_param(u,v)*self.__get_emission_param(seq,state+1,v),'tag' : u} for u in self.tree[state]]
 				mx = max(vals,key=lambda x:x['prob'])
 				self.tree[state+1][v] = mx['prob']
-				saved_u_values[v] = mx['tag']
 
-			tag, seq =  self.__viterbi_forward(seq,state+1)
-
-			for v in self.tree[state+1]:
-				if v == tag:
-					return saved_u_values[v], [self.tree[state+1][v]] + seq
+			self.__viterbi_forward(seq,state+1)
 
 		else:
 			vals = [{'prob' : self.tree[state][v]*self.__get_transition_param(v,'STOP'),'tag' : v} for v in self.tree[state]]
 			mx = max(vals,key=lambda x:x['prob'])
-			return mx['tag'], [mx['prob']]
+			self.tree[state+1][mx['tag']] = mx['prob']
 
 	def __get_transition_param(self,u,v):
 		return self.t['map'][self.t['tags'].index(u)][self.t['tags'].index(v)]
@@ -83,9 +75,14 @@ class Viterbi:
 			return 0
 		return self.e["#UNK#"][tag]
 
-	def __viterbi_backtrack(self,pi,post,seq):
-		if len(pi) == 0:
+	def __viterbi_backtrack(self,state,seq,y=None):
+		if state == len(seq):
+			vals = [{'prob' : self.tree[state][v]*self.__get_transition_param(v,'STOP'),'tag':v} for v in self.tree[state]]
+			mx = max(vals,key=lambda x:x['prob'])
+			return self.__viterbi_backtrack(state-1,seq,y=mx['tag']) + [mx['tag']]
+		elif state > 0:
+			vals = [{'prob' : self.tree[state][u]*self.__get_transition_param(u,y),'tag':u} for u in self.tree[state]]
+			mx = max(vals,key=lambda x:x['prob'])
+			return self.__viterbi_backtrack(state-1,seq,y=mx['tag']) + [mx['tag']]
+		else:
 			return []
-		vals = [{'p':pi[-1]*self.__get_transition_param(v,post)*self.__get_emission_param(seq,len(seq)-1,v),'v':v} for v in self.t['tags'][1:-1]]
-		o = max(vals,key=lambda x:x['p'])
-		return self.__viterbi_backtrack(pi[:-1],o['v'],seq[:-1]) + [o['v']]
