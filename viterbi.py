@@ -3,6 +3,7 @@ class Viterbi:
 		self.t = t
 		self.e = e
 		self.tree = []
+		self.tags = ['START', 'O', 'B-positive', 'B-neutral', 'B-negative', 'I-positive', 'I-neutral', 'I-negative', 'STOP']
 
 	#Please use this call to assign tags to the sequence
 	def assign(self,seq):
@@ -15,6 +16,7 @@ class Viterbi:
 		elif state < len(seq):
 			values = []
 			for v in self.t['tags'][1:-1]:
+			# for v in self.tags[1:-1]:
 				lst = self.__get_transition_param(pre_t,v)*self.__get_emission_param(seq,state,v)
 				result = self.tree[state+1][v] if self.tree[state+1].get(v) else self.__viterbi_forward(seq,state+1,v)
 				val = {'val' : result,'tag' : v, 'lst' : lst}
@@ -28,6 +30,7 @@ class Viterbi:
 			return [self.__get_transition_param(pre_t,'STOP')]
 
 	def __get_transition_param(self,u,v):
+		# return self.t[v][u]
 		return self.t['map'][self.t['tags'].index(u)][self.t['tags'].index(v)]
 
 	def __get_emission_param(self,seq,state,v):
