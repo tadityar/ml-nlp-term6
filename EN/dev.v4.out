@@ -1,4 +1,3 @@
-
 When O
 I O
 called O
@@ -293,12 +292,12 @@ a O
 table O
 . O
 
-We B-positive
-concluded B-positive
-with I-positive
-tiramisu I-positive
-chocolate I-positive
-cake I-positive
+We O
+concluded O
+with O
+tiramisu O
+chocolate O
+cake O
 , O
 both O
 were O
@@ -351,7 +350,7 @@ to O
 be O
 addressed O
 by O
-management B-negative
+management O
 but O
 Snooze O
 has O
@@ -423,7 +422,7 @@ and O
 some O
 walnuts O
 the O
-salads B-positive
+salads O
 we O
 got O
 were O
@@ -547,7 +546,7 @@ is O
 beautiful O
 the O
 bar O
-scene B-positive
+scene O
 seems O
 to O
 be O
@@ -617,8 +616,8 @@ impress O
 someone O
 . O
 
-The B-positive
-lamb B-positive
+The O
+lamb O
 was O
 tender O
 so O
@@ -1138,8 +1137,8 @@ The O
 rest O
 of O
 the O
-dim B-positive
-sum I-positive
+dim O
+sum O
 , O
 though O
 pricey O
@@ -1193,10 +1192,10 @@ is O
 undoubtedly O
 my O
 favorite O
-modern B-positive
-Japanese I-positive
-brasserie I-positive
-( I-positive
+modern O
+Japanese O
+brasserie O
+( O
 that O
 don O
 ’ O
@@ -1528,8 +1527,8 @@ a O
 delicious O
 and O
 sweet O
-tasting B-positive
-bread I-positive
+tasting O
+bread O
 . O
 
 Rather O
@@ -1903,8 +1902,8 @@ winged I-positive
 / I-positive
 Dame I-positive
 Edna I-positive
-glasses O
-) O
+glasses I-positive
+) I-positive
 will O
 yell O
 at O
@@ -2212,8 +2211,8 @@ customer B-negative
 service I-negative
 . O
 
-The I-neutral
-pizza I-neutral
+The B-positive
+pizza B-positive
 was O
 slightly O
 reminescent B-positive
@@ -2376,8 +2375,8 @@ fast O
 to O
 order O
 the O
-appetizer B-positive
-platter I-positive
+appetizer O
+platter O
 since O
 we O
 were O
@@ -2816,8 +2815,8 @@ live O
 nearby O
 . O
 
-The I-positive
-soup I-positive
+The I-negative
+soup I-negative
 for O
 the O
 udon O
@@ -3480,8 +3479,8 @@ too O
 touristy O
 . O
 
-The I-neutral
-menu I-neutral
+The O
+menu O
 is O
 very O
 limited O
@@ -3564,9 +3563,9 @@ was O
 odd O
 . O
 
-The B-positive
-hot B-positive
-dogs I-positive
+The O
+hot O
+dogs O
 are O
 good O
 , O
@@ -3909,8 +3908,8 @@ you're O
 with O
 . O
 
-The I-neutral
-pizza I-neutral
+The B-positive
+pizza B-positive
 is O
 overpriced O
 and O
@@ -4205,11 +4204,11 @@ and O
 great O
 . O
 
-limited I-neutral
-menu I-neutral
+limited O
+menu O
 , O
 no-so-fresh O
-ingredients B-positive
+ingredients O
 , O
 thinly-sliced O
 fish B-positive
@@ -4310,3 +4309,5 @@ and O
 friendly O
 service B-positive
 . O
+
+
