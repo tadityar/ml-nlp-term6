@@ -7972,13 +7972,14 @@ v_out = []
 
 for s in seq:
 	out = v.assign(s)
-	print (out)
 	v_out.append(out)
+	print (out)
+
 v_seq = v_result_parse(v_out,seq)
 
 
 output_to_file = convert_back(v_seq)
-output_file(output_to_file,r'EN\dev.v3.out')
+output_file(output_to_file,r'EN\dev.v4.out')
 print ("done")
 
 
