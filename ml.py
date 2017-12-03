@@ -220,13 +220,10 @@ def get_transition_params(filename):
 			currentTag = 'START'
 			tagCount[tags.index('START')] += 1 
 
-<<<<<<< HEAD
-=======
 	# count transition params
 	# print (tagTransitionCount)
 	# print ("TAG COUNT HERE")
 	# print (tag_count)
->>>>>>> viterbi with erics code
 	for i in range(len(tagTransitionCount)):
 		for j in range(len(tagTransitionCount[i])):
 			tagTransitionCount[i][j] = tagTransitionCount[i][j]/tagCount[i]
@@ -7970,20 +7967,19 @@ print (tp)
 
 # ### RUNNING VITERBI ###
 
-v = Viterbi(tp,ep)
+v = ForwardBackward(tp,ep)
 v_out = []
 
 for s in seq:
 	out = v.assign(s)
 	print (out)
 	v_out.append(out)
-print (v_out)
-# v_seq = v_result_parse(v_out,seq)
+v_seq = v_result_parse(v_out,seq)
 
 
-# output_to_file = convert_back(v_seq)
-# output_file(output_to_file,r'EN\dev.v.out')
-# print ("done")
+output_to_file = convert_back(v_seq)
+output_file(output_to_file,r'EN\dev.fb2.out')
+print ("done")
 
 
 

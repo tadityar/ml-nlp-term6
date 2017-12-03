@@ -40,12 +40,15 @@ class ForwardBackward:
 	def __get_transition_param(self,u,v):
 		return self.t['map'][self.t['tags'].index(u)][self.t['tags'].index(v)]
 
-	def __get_emission_param(self,seq,state,v):
-		for i in range(len(self.e)):
-			for key in self.e[i]:
-				if key in list(seq[state].keys())[0]:
-					try:
-						return self.e[i][key][v]
-					except KeyError as er:
-						return self.e[0]["#UNK#"][v]
-		return self.e[0]["#UNK#"][v]
+	def __get_emission_param(self, seq, state, tag):
+		word = list(seq[state].keys())[0]
+		if word in self.e:
+			if tag in self.e[word]:
+				return self.e[word][tag]
+			else:
+				if tag == 'START' or tag == 'STOP':
+					return 0
+				return self.e["#UNK#"][tag]
+		if tag == 'START' or tag == 'STOP':
+			return 0
+		return self.e["#UNK#"][tag]
