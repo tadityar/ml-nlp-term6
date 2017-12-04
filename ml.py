@@ -43,22 +43,25 @@ def parse_train_lower(filename):
 	pairs = []
 	words = []
 	f = open(filename, 'r', encoding = 'UTF-8')
-	res = []
+	res = {}
 	found = False
-	for k in f:
-		k = k.split()
-		if len(k) > 0:
-			k[0] = k[0]
-			tags.append(k[1])
-			for i in res:
-				if k[0] in i:
-					found = True
-					if k[1] not in i[k[0]]:
-						i[k[0]][k[1]] = 1
-					else:
-						i[k[0]][k[1]] += 1
+	for line in f:
+		line = line.split()
+		if len(line) > 0:
+			word = line[0].lower()
+			tag = line[1]
+			tags.append(tag)
+			if word in res:
+				found = True
+				if tag not in res[word]:
+					res[word][tag] = 1
+				else:
+					res[word][tag] += 1
 			if not found:
-				res.append({k[0]: {k[1]: 1}})
+				res[word] = {tag: 1}
+				for i in ['START', 'O', 'B-positive', 'B-neutral', 'B-negative', 'I-positive', 'I-neutral', 'I-negative', 'STOP']:
+					if i not in res[word]:
+						res[word][i] = 0
 			found = False
 	tags_count = Counter(tags)
 	f.close()
@@ -273,7 +276,7 @@ v_seq = v_result_parse(v_out,seq)
 
 
 output_to_file = convert_back(v_seq)
-output_file(output_to_file,r'EN/dev.pv.out')
+output_file(output_to_file,r'EN/dev.pv2.out')
 print ("done")
 
 
