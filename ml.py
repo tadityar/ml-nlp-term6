@@ -200,16 +200,17 @@ def get_transition_params(filename):
 	# count transitions and tags
 	for line in f:
 		words = line.split()
+		# print (words)
 		if len(words) > 0:
 			if currentTag == 'START':
 				tagCount[tags.index('START')] += 1
-				tagTransitionCount[words[1]][currentTag] += 1
-				tagCount[tags.index(words[1])] += 1
-				currentTag = words[1]
+				tagTransitionCount[words[-1]][currentTag] += 1
+				tagCount[tags.index(words[-1])] += 1
+				currentTag = words[-1]
 			else:
-				tagTransitionCount[words[1]][currentTag] += 1
-				tagCount[tags.index(words[1])] += 1
-				currentTag = words[1]
+				tagTransitionCount[words[-1]][currentTag] += 1
+				tagCount[tags.index(words[-1])] += 1
+				currentTag = words[-1]
 		else:
 			tagTransitionCount['STOP'][currentTag] += 1
 			tagCount[tags.index('STOP')] += 1
@@ -242,9 +243,9 @@ def v_result_parse(v_out,seq):
 ## <<< RESULTS FOR PART 2 >>>>
 	
 #training	
-words_count, tag_count = parse_train(r'EN/train')
-words_count = process_unknown_words(words_count,3)
-ep = get_emission_params(words_count, tag_count)
+# words_count, tag_count = parse_train(r'EN/train')
+# words_count = process_unknown_words(words_count,3)
+# ep = get_emission_params(words_count, tag_count)
 # data = parser(r'EN/dev.in')
 # data_p = process_unknown_words_testing(data,words_count)
 # ep_p = emission_param_preprocess(ep)
@@ -254,45 +255,80 @@ ep = get_emission_params(words_count, tag_count)
 # output_to_file = convert_back(tagged_words)
 # output_file(output_to_file,r'EN/dev.p2.out')
 
+
 ## <<< RESULTS FOR PART 3 >>>
-
-tp = get_transition_params(r'EN/train')
-
-seq = parser(r'EN/dev.in')
-
 
 # ### RUNNING VITERBI ###
 
-v = PosteriorViterbi(tp,ep)
-v_out = []
+def run_viterbi(fileTrain, fileIn, fileOut):
+	words_count, tag_count = parse_train(fileTrain)
+	words_count = process_unknown_words(words_count,3)
+	ep = get_emission_params(words_count, tag_count)
+	tp = get_transition_params(fileTrain)
+	seq = parser(fileIn)
+	v = Viterbi(tp,ep)
+	v_out = []
 
-for s in seq:
-	out = v.assign(s)
-	v_out.append(out)
-	print (out)
-	# print (out)
+	for s in seq:
+		out = v.assign(s)
+		v_out.append(out)
 
-v_seq = v_result_parse(v_out,seq)
+	v_seq = v_result_parse(v_out,seq)
+	output_to_file = convert_back(v_seq)
+	output_file(output_to_file,fileOut)
+	print ("Viterbi done for "+ fileOut)
 
+# run_viterbi(r'EN/train',r'EN/dev.in',r'EN/dev.p3.out')
+# run_viterbi(r'FR/train',r'FR/dev.in',r'FR/dev.p3.out')
+# run_viterbi(r'CN/train',r'CN/dev.in',r'CN/dev.p3.out')
+# run_viterbi(r'SG/train',r'SG/dev.in',r'SG/dev.p3.out')
 
-output_to_file = convert_back(v_seq)
-output_file(output_to_file,r'EN/dev.pv2.out')
-print ("done")
-
-
+## <<< RESULTS FOR PART 4 >>>
 
 # ### RUNNING FORWARDBACKWARD ###
-# v = ForwardBackward(tp,ep)
-# v_out = []
-# for s in seq:
-# 	out = v.assign(s)
-# 	v_out.append(out)
-# v_seq = v_result_parse(v_out,seq)
-# output_to_file = convert_back(v_seq)
-# output_file(output_to_file,r'EN/dev.fb.out')
-# print ("done")
+def run_forwardbackward(fileTrain,fileIn,fileOut):
+	words_count, tag_count = parse_train(fileTrain)
+	words_count = process_unknown_words(words_count,3)
+	ep = get_emission_params(words_count, tag_count)
+	tp = get_transition_params(fileTrain)
+	seq = parser(fileIn)
+
+	v = ForwardBackward(tp,ep)
+	v_out = []
+
+	for s in seq:
+		out = v.assign(s)
+		v_out.append(out)
+
+	v_seq = v_result_parse(v_out,seq)
+	output_to_file = convert_back(v_seq)
+	output_file(output_to_file,fileOut)
+	print ("ForwardBackward done for "+ fileOut)
+
+run_forwardbackward(r'EN/train',r'EN/dev.in',r'EN/dev.p4.out')
+run_forwardbackward(r'FR/train',r'FR/dev.in',r'FR/dev.p4.out')
 
 
+def run_posteriorviterbi(fileTrain, fileIn, fileOut):
+	words_count, tag_count = parse_train(fileTrain)
+	words_count = process_unknown_words(words_count,3)
+	ep = get_emission_params(words_count, tag_count)
+	tp = get_transition_params(fileTrain)
+	seq = parser(fileIn)
+	v = PosteriorViterbi(tp,ep)
+	v_out = []
+
+	for s in seq:
+		out = v.assign(s)
+		v_out.append(out)
+
+	v_seq = v_result_parse(v_out,seq)
+	output_to_file = convert_back(v_seq)
+	output_file(output_to_file,fileOut)
+	print ("PosteriorViterbi done for "+ fileOut)
+
+run_posteriorviterbi(r'EN/train',r'EN/dev.in',r'EN/dev.p5.out')
+run_posteriorviterbi(r'FR/train',r'FR/dev.in',r'FR/dev.p5.out')
 
 # p = viterbi(seq,-1,tp,ep)
 # print (p)
