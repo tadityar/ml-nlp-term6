@@ -38,7 +38,8 @@ class ForwardBackward:
 			return self.states[j][u]['beta']
 
 	def __get_transition_param(self,u,v):
-		return self.t['map'][self.t['tags'].index(u)][self.t['tags'].index(v)]
+		return self.t['map'][v][u]
+		# return self.t['map'][self.t['tags'].index(u)][self.t['tags'].index(v)]
 
 	def __get_emission_param(self, seq, state, tag):
 		word = list(seq[state].keys())[0]

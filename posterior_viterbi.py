@@ -4,18 +4,22 @@ class PosteriorViterbi:
 	def __init__(self,t,e):
 		self.t = t
 		self.e = e
-		self.fb = ForwardBackward(f,b)
+		self.fb = ForwardBackward(t,e)
 		self.posterior = []
-		self.tree = []
 
 	def assign(self,seq):
+		self.tree = [{} for i in range(len(seq)+1)]
 		self.fb.assign(seq)
 		states = self.fb.states
+
+		self.__compute_posterior(states)
+		self.__viterbi_forward(seq,-1)
+		return self.__viterbi_backtrack(len(seq),seq)
 
 	def __compute_posterior(self,states):
 		p_o_m = sum([states[-1][v]['alpha']*self.__get_transition_param(v,'STOP') for v in states[-1]])
 
-		self.posterior = [[{v: (states[i][v]['alpha']*states[i][v]['beta'])/p_o_m} for v in states[i]] for i in range(len(states))]
+		self.posterior = [{v: (states[i][v]['alpha']*states[i][v]['beta'])/p_o_m for v in states[i]} for i in range(len(states))]
 
 	def __viterbi_forward(self,seq,state):
 		if state == -1:
@@ -23,7 +27,7 @@ class PosteriorViterbi:
 			self.__viterbi_forward(seq,state+1)
 		elif state < len(seq):
 			for v in self.t['tags'][1:-1]:
-				vals = [self.tree[state][u]*self.__is_viable_path(u,v)*self.posterior[state+1][v] for u in self.tree[state]]
+				vals = [self.tree[state][u]*self.__is_viable_path(u,v)*self.posterior[state][v] for u in self.tree[state]]
 				self.tree[state+1][v] = max(vals)
 
 			self.__viterbi_forward(seq,state+1)
@@ -31,7 +35,7 @@ class PosteriorViterbi:
 			vals = [self.tree[state][v]*self.__is_viable_path(v,'STOP') for v in self.tree[state]]
 			mx = max(vals)
 
-	def __viterbi_backtrack(self,seq):
+	def __viterbi_backtrack(self,state,seq,y=None):
 		if state == len(seq):
 			vals = [{'prob' : self.tree[state][v]*self.__is_viable_path(v,'STOP'),'tag':v} for v in self.tree[state]]
 			mx = max(vals,key=lambda x:x['prob'])
