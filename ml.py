@@ -3,6 +3,7 @@ import copy
 from viterbi import Viterbi
 from forward_backward import ForwardBackward
 from fractions import Fraction
+from posterior_viterbi import PosteriorViterbi
 
 
 '''
@@ -265,13 +266,14 @@ v_out = []
 for s in seq:
 	out = v.assign(s)
 	v_out.append(out)
+	print (out)
 	# print (out)
 
 v_seq = v_result_parse(v_out,seq)
 
 
 output_to_file = convert_back(v_seq)
-output_file(output_to_file,r'EN/dev.v4.out')
+output_file(output_to_file,r'EN/dev.v5.out')
 print ("done")
 
 

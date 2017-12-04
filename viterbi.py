@@ -11,7 +11,7 @@ class Viterbi:
 		out = self.__viterbi_backtrack(len(seq),seq)
 		return out
 		
-	def __viterbi_forward(self,seq,state,pre_t=None):
+	def __viterbi_forward(self,seq,state):
 		if state == -1:
 			self.tree[state+1]['START'] = 1
 			self.__viterbi_forward(seq,state+1)
@@ -50,9 +50,9 @@ class Viterbi:
 			vals = [{'prob' : self.tree[state][v]*self.__get_transition_param(v,'STOP'),'tag':v} for v in self.tree[state]]
 			mx = max(vals,key=lambda x:x['prob'])
 			return self.__viterbi_backtrack(state-1,seq,y=mx['tag']) + [mx['tag']]
-		elif state > 1:
+		elif state > 0:
 			vals = [{'prob' : self.tree[state][u]*self.__get_transition_param(u,y),'tag':u} for u in self.tree[state]]
 			mx = max(vals,key=lambda x:x['prob'])
 			return self.__viterbi_backtrack(state-1,seq,y=mx['tag']) + [mx['tag']]
 		else:
-			return [y]
+			return []
