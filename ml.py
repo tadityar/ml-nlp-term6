@@ -14,17 +14,21 @@ sentiment = ['START', 'positive', 'neutral', 'negative', 'STOP']
 ## <<< RESULTS FOR PART 2 >>>>
 	
 #training	
-# words_count, tag_count = Processor.parse_train(r'EN/train')
-# words_count = Processor.process_unknown_words(words_count,3, normal_tags)
-# ep = Processor.get_emission_params(words_count, tag_count)
-# data = Processor.parser(r'EN/dev.in')
-# data_p = Processor.process_unknown_words_testing(data,words_count)
-# ep_p = emission_param_preprocess(ep)
-# tagged_words = tagging_words(ep_p,data_p)
+def run_p2(fileTrain,fileIn,fileOut):
+	words_count, tag_count = Processor.parse_train(fileTrain)
+	words_count = Processor.process_unknown_words(words_count,3, normal_tags)
+	ep = Processor.get_emission_params(words_count, tag_count)
+	data = Processor.parser(fileIn)
+	data_p = Processor.process_unknown_words_testing(data,words_count)
+	ep_p = Processor.emission_param_preprocess(ep)
+	tagged_words = Processor.tagging_words(ep_p,data_p)
 
-#testing vs actual output
-# output_to_file = Processor.convert_back(tagged_words)
-# Processor.output_file(output_to_file,r'EN/dev.p2.out')
+	output_to_file = Processor.convert_back(tagged_words)
+	Processor.output_file(output_to_file,fileOut)
+	print ("Part 2 done for "+fileOut)
+
+run_p2(r'EN/train',r'EN/dev.in',r'EN/dev.p2.out')
+
 
 
 ## <<< RESULTS FOR PART 3 >>>

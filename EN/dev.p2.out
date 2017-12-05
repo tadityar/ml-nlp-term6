@@ -121,11 +121,11 @@ before O
 on O
 a O
 #UNK# I-positive
-( O
+( I-positive
 #UNK# I-positive
 ? O
 #UNK# I-positive
-) O
+) I-positive
 you O
 will O
 find O
@@ -205,11 +205,11 @@ variety O
 of I-neutral
 the O
 beer I-positive
-( O
+( I-positive
 cold B-positive
 and I-neutral
 good O
-) O
+) I-positive
 . O
 
 #UNK# I-positive
@@ -452,15 +452,15 @@ drink O
 
 There O
 is O
-" O
+" I-negative
 #UNK# I-positive
-" O
+" I-negative
 and I-neutral
 there O
 is O
-" O
+" I-negative
 #UNK# I-positive
-" O
+" I-negative
 ? O
 
 And O
@@ -557,11 +557,11 @@ Also O
 , O
 the O
 #UNK# I-positive
-( O
+( I-positive
 #UNK# I-positive
 $ O
 #UNK# I-positive
-) O
+) I-positive
 didn't O
 come O
 with I-positive
@@ -787,7 +787,7 @@ to O
 #UNK# I-positive
 to O
 #UNK# I-positive
-( O
+( I-positive
 #UNK# I-positive
 my O
 #UNK# I-positive
@@ -795,7 +795,7 @@ of I-neutral
 #UNK# I-positive
 #UNK# I-positive
 #UNK# I-positive
-) O
+) I-positive
 , O
 I O
 called O
@@ -951,7 +951,7 @@ the O
 most O
 part O
 #UNK# I-positive
-( O
+( I-positive
 in I-negative
 the O
 wonderful O
@@ -968,7 +968,7 @@ that O
 $ O
 #UNK# I-positive
 way O
-) O
+) I-positive
 . O
 
 There O
@@ -1195,14 +1195,14 @@ favorite O
 #UNK# I-positive
 Japanese B-negative
 #UNK# I-positive
-( O
+( I-positive
 that O
 #UNK# I-positive
 ’ I-neutral
 t O
 serve O
 sushi B-positive
-) O
+) I-positive
 , O
 and I-neutral
 in I-negative
@@ -1547,7 +1547,7 @@ plate I-positive
 of I-neutral
 #UNK# I-positive
 #UNK# I-positive
-( O
+( I-positive
 #UNK# I-positive
 sauce I-negative
 , O
@@ -1559,7 +1559,7 @@ any O
 or I-negative
 #UNK# I-positive
 #UNK# I-positive
-) O
+) I-positive
 . O
 
 In O
@@ -1896,14 +1896,14 @@ The B-neutral
 #UNK# I-positive
 #UNK# I-positive
 #UNK# I-positive
-( O
+( I-positive
 with I-positive
 #UNK# I-positive
-/ O
+/ I-negative
 #UNK# I-positive
 #UNK# I-positive
 #UNK# I-positive
-) O
+) I-positive
 will O
 #UNK# I-positive
 at O
@@ -2227,11 +2227,11 @@ the O
 space I-negative
 years O
 #UNK# I-positive
-( O
+( I-positive
 a O
 #UNK# I-positive
 second O
-) O
+) I-positive
 . O
 
 The B-neutral
@@ -2396,10 +2396,10 @@ different O
 #UNK# I-positive
 of I-neutral
 #UNK# I-positive
-( O
+( I-positive
 rice B-negative
 #UNK# I-positive
-) O
+) I-positive
 . O
 
 The B-neutral
@@ -2428,11 +2428,11 @@ is O
 the O
 decor B-neutral
 ? O
-( O
+( I-positive
 not O
 very O
 pleasant O
-) O
+) I-positive
 . O
 
 I O
@@ -2563,7 +2563,7 @@ wouldn't O
 go O
 back O
 though O
-' O
+' I-negative
 #UNK# I-positive
 I O
 don't O
@@ -2656,7 +2656,7 @@ I O
 liked O
 the O
 setting B-positive
-/ O
+/ I-negative
 atmosphere B-neutral
 a O
 lot O
@@ -2670,26 +2670,26 @@ a O
 #UNK# I-positive
 #UNK# I-positive
 after O
-( O
+( I-positive
 and I-neutral
 this O
 is O
 #UNK# I-positive
 #UNK# I-positive
-) O
+) I-positive
 the O
 #UNK# I-positive
 of I-neutral
 #UNK# I-positive
 #UNK# I-positive
-" O
+" I-negative
 #UNK# I-positive
 , O
 #UNK# I-positive
 , O
 #UNK# I-positive
 #UNK# I-positive
-" O
+" I-negative
 #UNK# I-positive
 by I-negative
 #UNK# I-positive
@@ -3037,7 +3037,7 @@ because O
 of I-neutral
 the O
 price B-neutral
-( O
+( I-positive
 just O
 chicken I-negative
 #UNK# I-positive
@@ -3051,7 +3051,7 @@ rice B-negative
 is O
 $ O
 #UNK# I-positive
-) O
+) I-positive
 , O
 which O
 I O
@@ -3237,10 +3237,10 @@ but O
 enough O
 for O
 6 O
-( O
+( I-positive
 or I-negative
 more O
-) O
+) I-positive
 . O
 
 Not O
@@ -3518,7 +3518,7 @@ a O
 tasty O
 experience O
 ! O
-) O
+) I-positive
 
 A O
 little O
@@ -3650,13 +3650,13 @@ want O
 to O
 #UNK# I-positive
 ! O
-( O
+( I-positive
 it O
 was O
 a O
 bit O
 expensive O
-) O
+) I-positive
 
 We O
 were O
@@ -4161,10 +4161,10 @@ to O
 my O
 #UNK# I-positive
 #UNK# I-positive
-( O
+( I-positive
 #UNK# I-positive
 #UNK# I-positive
-) O
+) I-positive
 and I-neutral
 was O
 nice O
@@ -4309,4 +4309,5 @@ and I-neutral
 friendly O
 service B-negative
 . O
+
 
