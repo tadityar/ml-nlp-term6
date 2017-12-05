@@ -279,7 +279,8 @@ def run_viterbi(fileTrain, fileIn, fileOut):
 # run_viterbi(r'FR/train',r'FR/dev.in',r'FR/dev.p3.out')
 # run_viterbi(r'CN/train',r'CN/dev.in',r'CN/dev.p3.out')
 # run_viterbi(r'SG/train',r'SG/dev.in',r'SG/dev.p3.out')
-
+run_viterbi(r'EN/train',r'test/EN/test.in',r'test/EN/dev.p3.out')
+run_viterbi(r'FR/train',r'test/FR/test.in',r'test/FR/dev.p3.out')
 ## <<< RESULTS FOR PART 4 >>>
 
 # ### RUNNING FORWARDBACKWARD ###
@@ -302,8 +303,10 @@ def run_forwardbackward(fileTrain,fileIn,fileOut):
 	output_file(output_to_file,fileOut)
 	print ("ForwardBackward done for "+ fileOut)
 
-run_forwardbackward(r'EN/train',r'EN/dev.in',r'EN/dev.p4.out')
-run_forwardbackward(r'FR/train',r'FR/dev.in',r'FR/dev.p4.out')
+# run_forwardbackward(r'EN/train',r'EN/dev.in',r'EN/dev.p4.out')
+# run_forwardbackward(r'FR/train',r'FR/dev.in',r'FR/dev.p4.out')
+run_forwardbackward(r'EN/train',r'test/EN/test.in',r'test/EN/dev.p4.out')
+run_forwardbackward(r'FR/train',r'test/FR/test.in',r'test/FR/dev.p4.out')
 
 
 def run_posteriorviterbi(fileTrain, fileIn, fileOut):
@@ -324,9 +327,10 @@ def run_posteriorviterbi(fileTrain, fileIn, fileOut):
 	output_file(output_to_file,fileOut)
 	print ("PosteriorViterbi done for "+ fileOut)
 
-run_posteriorviterbi(r'EN/train',r'EN/dev.in',r'EN/dev.p5.out')
-run_posteriorviterbi(r'FR/train',r'FR/dev.in',r'FR/dev.p5.out')
-
+# run_posteriorviterbi(r'EN/train',r'EN/dev.in',r'EN/dev.p5.out')
+# run_posteriorviterbi(r'FR/train',r'FR/dev.in',r'FR/dev.p5.out')
+run_posteriorviterbi(r'EN/train',r'test/EN/test.in',r'test/EN/dev.p5.out')
+run_posteriorviterbi(r'FR/train',r'test/FR/test.in',r'test/FR/dev.p5.out')
 # p = viterbi(seq,-1,tp,ep)
 # print (p)
 
