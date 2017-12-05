@@ -27,8 +27,10 @@ def run_p2(fileTrain,fileIn,fileOut):
 	Processor.output_file(output_to_file,fileOut)
 	print ("Part 2 done for "+fileOut)
 
-run_p2(r'EN/train',r'EN/dev.in',r'EN/dev.p2.out')
-
+# run_p2(r'EN/train',r'EN/dev.in',r'EN/dev.p2.out')
+# run_p2(r'FR/train',r'FR/dev.in',r'FR/dev.p3.out')
+# run_p2(r'CN/train',r'CN/dev.in',r'CN/dev.p3.out')
+# run_p2(r'SG/train',r'SG/dev.in',r'SG/dev.p3.out')
 
 
 ## <<< RESULTS FOR PART 3 >>>
@@ -160,4 +162,4 @@ def run_separate_posteriorviterbi(fileTrain, fileIn, fileOut):
 	Processor.output_file(output_to_file,fileOut + '_separate')
 	print ("PosteriorViterbi tag done for "+ fileOut + '_separate')
 
-run_separate_posteriorviterbi(r'FR/train',r'FR/dev.in',r'FR/dev.p5sep.out')
+run_separate_posteriorviterbi(r'EN/train',r'EN/dev.in',r'EN/dev.p5sep.out')
