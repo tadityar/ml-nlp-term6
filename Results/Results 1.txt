@@ -1,0 +1,87 @@
+<<<<<EN Test 1 - Posterior>>>>>
+
+#Entity in gold data: 226
+#Entity in prediction: 91
+
+#Correct Entity : 64
+Entity  precision: 0.7033
+Entity  recall: 0.2832
+Entity  F: 0.4038
+
+#Correct Sentiment : 44
+Sentiment  precision: 0.4835
+Sentiment  recall: 0.1947
+Sentiment  F: 0.2776
+
+
+<<<<EN Test 2 - Forward Backward>>>>
+
+#Entity in gold data: 226
+#Entity in prediction: 92
+
+#Correct Entity : 64
+Entity  precision: 0.6957
+Entity  recall: 0.2832
+Entity  F: 0.4025
+
+#Correct Sentiment : 44
+Sentiment  precision: 0.4783
+Sentiment  recall: 0.1947
+Sentiment  F: 0.2767
+
+<<<<EN Test 3 - Viterbi>>>>
+
+#Entity in gold data: 226
+#Entity in prediction: 92
+
+#Correct Entity : 62
+Entity  precision: 0.6739
+Entity  recall: 0.2743
+Entity  F: 0.3899
+
+#Correct Sentiment : 44
+Sentiment  precision: 0.4783
+Sentiment  recall: 0.1947
+Sentiment  F: 0.2767
+
+<<<<FR Test 1 - Posterior >>>
+#Entity in gold data: 223
+#Entity in prediction: 75
+
+#Correct Entity : 55
+Entity  precision: 0.7333
+Entity  recall: 0.2466
+Entity  F: 0.3691
+
+#Correct Sentiment : 38
+Sentiment  precision: 0.5067
+Sentiment  recall: 0.1704
+Sentiment  F: 0.2550
+
+<<<<FR Test 2- Forward Backward >>>>
+#Entity in gold data: 223
+#Entity in prediction: 73
+
+#Correct Entity : 54
+Entity  precision: 0.7397
+Entity  recall: 0.2422
+Entity  F: 0.3649
+
+#Correct Sentiment : 37
+Sentiment  precision: 0.5068
+Sentiment  recall: 0.1659
+Sentiment  F: 0.2500
+
+<<<<FR Test 3 - Viterbi >>>
+#Entity in gold data: 223
+#Entity in prediction: 73
+
+#Correct Entity : 55
+Entity  precision: 0.7534
+Entity  recall: 0.2466
+Entity  F: 0.3716
+
+#Correct Sentiment : 38
+Sentiment  precision: 0.5205
+Sentiment  recall: 0.1704
+Sentiment  F: 0.2568
