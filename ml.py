@@ -22,18 +22,32 @@ def parse_train(filename):
 			word = line[0]
 			tag = line[1]
 			tags.append(tag)
-			if word in res:
-				found = True
-				if tag not in res[word]:
-					res[word][tag] = 1
-				else:
-					res[word][tag] += 1
-			if not found:
-				res[word] = {tag: 1}
-				for i in ['START', 'O', 'B-positive', 'B-neutral', 'B-negative', 'I-positive', 'I-neutral', 'I-negative', 'STOP']:
-					if i not in res[word]:
-						res[word][i] = 0
-			found = False
+			if word in '$"%&()+,-.../:);?1234567890\'':
+				if word in res:
+					found = True
+					if 'O' not in res[word]:
+						res[word]['O'] = 1
+					else:
+						res[word]['O'] += 1
+				if not found:
+					res[word] = {'O': 1}
+					for i in ['START', 'O', 'B-positive', 'B-neutral', 'B-negative', 'I-positive', 'I-neutral', 'I-negative', 'STOP']:
+						if i not in res[word]:
+							res[word][i] = 0
+				found = False
+			else:
+				if word in res:
+					found = True
+					if tag not in res[word]:
+						res[word][tag] = 1
+					else:
+						res[word][tag] += 1
+				if not found:
+					res[word] = {tag: 1}
+					for i in ['START', 'O', 'B-positive', 'B-neutral', 'B-negative', 'I-positive', 'I-neutral', 'I-negative', 'STOP']:
+						if i not in res[word]:
+							res[word][i] = 0
+				found = False
 	tags_count = Counter(tags)
 	f.close()
 	return res, tags_count
@@ -106,9 +120,8 @@ def process_unknown_words_testing(inp,model):
 		for j in range(len(output[i])):
 			for key in output[i][j]:
 				present = False
-				for word in model:
-					if word.get(key):
-						present = key
+				if model.get(key):
+					present = key
 				output[i][j] = {present : None} if present else {'#UNK#' : None}
 	return output
 
@@ -243,17 +256,17 @@ def v_result_parse(v_out,seq):
 ## <<< RESULTS FOR PART 2 >>>>
 	
 #training	
-# words_count, tag_count = parse_train(r'EN/train')
-# words_count = process_unknown_words(words_count,3)
-# ep = get_emission_params(words_count, tag_count)
-# data = parser(r'EN/dev.in')
-# data_p = process_unknown_words_testing(data,words_count)
-# ep_p = emission_param_preprocess(ep)
-# tagged_words = tagging_words(ep_p,data_p)
+words_count, tag_count = parse_train(r'EN/train')
+words_count = process_unknown_words(words_count,3)
+ep = get_emission_params(words_count, tag_count)
+data = parser(r'EN/dev.in')
+data_p = process_unknown_words_testing(data,words_count)
+ep_p = emission_param_preprocess(ep)
+tagged_words = tagging_words(ep_p,data_p)
 
 #testing vs actual output
-# output_to_file = convert_back(tagged_words)
-# output_file(output_to_file,r'EN/dev.p2.out')
+output_to_file = convert_back(tagged_words)
+output_file(output_to_file,r'EN/dev.p2.out')
 
 
 ## <<< RESULTS FOR PART 3 >>>
@@ -330,14 +343,14 @@ def run_posteriorviterbi(fileTrain, fileIn, fileOut):
 	output_file(output_to_file,fileOut)
 	print ("PosteriorViterbi done for "+ fileOut)
 
-# run_posteriorviterbi(r'EN/train',r'EN/dev.in',r'EN/dev.p5.out')
-# run_posteriorviterbi(r'FR/train',r'FR/dev.in',r'FR/dev.p5.out')
-run_posteriorviterbi(r'test/EN/dev.p5.out',r'EN/dev.in',r'test/EN/dev.test1')
-run_posteriorviterbi(r'test/FR/dev.p5.out',r'FR/dev.in',r'test/FR/dev.test1')
-run_posteriorviterbi(r'test/EN/dev.p4.out',r'EN/dev.in',r'test/EN/dev.test2')
-run_posteriorviterbi(r'test/FR/dev.p4.out',r'FR/dev.in',r'test/FR/dev.test2')
-run_posteriorviterbi(r'test/EN/dev.p3.out',r'EN/dev.in',r'test/EN/dev.test3')
-run_posteriorviterbi(r'test/FR/dev.p3.out',r'FR/dev.in',r'test/FR/dev.test3')
+# run_posteriorviterbi(r'EN/train',r'EN/dev.in',r'EN/dev.p5p.out')
+# run_posteriorviterbi(r'FR/train',r'FR/dev.in',r'FR/dev.p5p.out')
+# run_posteriorviterbi(r'test/EN/dev.p5.out',r'EN/dev.in',r'test/EN/dev.ptest1')
+# run_posteriorviterbi(r'test/FR/dev.p5.out',r'FR/dev.in',r'test/FR/dev.ptest1')
+# run_posteriorviterbi(r'test/EN/dev.p4.out',r'EN/dev.in',r'test/EN/dev.ptest2')
+# run_posteriorviterbi(r'test/FR/dev.p4.out',r'FR/dev.in',r'test/FR/dev.ptest2')
+# run_posteriorviterbi(r'test/EN/dev.p3.out',r'EN/dev.in',r'test/EN/dev.ptest3')
+# run_posteriorviterbi(r'test/FR/dev.p3.out',r'FR/dev.in',r'test/FR/dev.ptest3')
 # p = viterbi(seq,-1,tp,ep)
 # print (p)
 
