@@ -139,12 +139,13 @@ class Processor:
 		output.update({'#UNK#':{}})
 		for tag in tags:
 			output['#UNK#'][tag] = 0
+			print(tag)
 		for word in f:
 			if sum(f[word][tags] for tags in f[word]) > n:
 				output.update({word:f[word]})
 			else:
-				for tags in output['#UNK#']:
-					output['#UNK#'][tags] += f[word][tags]
+				for unk_tags in output['#UNK#']:
+					output['#UNK#'][unk_tags] += f[word][unk_tags]
 		return output
 
 	def get_transition_params(filename, tags, type):
@@ -283,28 +284,56 @@ class Processor:
 	##Writing a function to assign the viterbi output back to the seq
 	## that was passed in. v_out = [[tag,tag],[]] seq = [[{},{}],[{},{}]]
 	def v_result_parse(v_out,seq):
+		new_seq = copy.deepcopy(seq)
 		sentenceCounter = 0
-		for sentence in seq:
+		for sentence in new_seq:
 			wordCounter = 0
 			for wordDict in sentence:
 				for key in wordDict:
 					wordDict[key] = v_out[sentenceCounter][wordCounter]
 				wordCounter += 1
 			sentenceCounter += 1
-		return (seq)
+		return (new_seq)
 
-	def swap_if_different(tag_out1, tag_out2, ep_sent):
+	# def swap_if_different(tag_out1, tag_out2, ep_sent):
+	# 	res = []
+	# 	for i in range(len(tag_out1)):
+	# 		res.append([])
+	# 		for j in range(len(tag_out1[i])):
+	# 			if (tag_out2[i][j] not in tag_out1[i][j]):
+	# 				if (tag_out2[i][j] != 'O' and tag_out1[i][j] == 'O'):
+	# 					res[i].append(ep_sent[tag_out2[i][j][0]])
+	# 				else:
+	# 					res[i].append(tag_out2[i][j] + '-' + tag_out1[i][j][2:])
+	# 			else:
+	# 				res[i].append(tag_out1[i][j])
+	# 	return res
+
+	def swap_if_different(tag_out1, tag_out2, ep):
 		res = []
 		for i in range(len(tag_out1)):
 			res.append([])
 			for j in range(len(tag_out1[i])):
-				if (tag_out2[i][j] not in tag_out1[i][j]):
-					if (tag_out2[i][j] != 'O'):
-						res[i].append(ep_sent[tag_out2[i][j][0]])
+				for word, tag in tag_out1[i][j].items():
+					# print(word)
+					# print(tag)
+					# print(tag_out2[i][j][word])
+					if tag_out2[i][j][word] not in tag:
+						# print("NOT EQUAL!!")
+						if (tag_out2[i][j][word] != 'O' and tag == 'O'):
+							if word in ep:
+								# ep_word = ep[word]
+								ep_word = ep[word]
+							else:
+								ep_word = ep['#UNK#']
+							probable_tags = max([{'tag': tag_out2[i][j][word][0] + '-'+ k} for k,v in ep_word.items()],key=lambda x:x['tag'])
+							# new_tag = max(probable_tags.items(), key=operator.itemgetter(1))[0]
+							res[i].append({word: probable_tags['tag']})
+						else:
+							res[i].append({word: tag_out2[i][j][word] + '-' + tag[2:]})
 					else:
-						res[i].append(tag_out2[i][j] + '-' + tag_out1[i][j][2:])
-				else:
-					res[i].append(tag_out1[i][j])
+						res[i].append({word : tag_out1[i][j][word]})
+		# print(res)
 		return res
 
 	def combine_tag_sentiment(tag_out, sentiment_out):
