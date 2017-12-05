@@ -4,114 +4,12 @@ from viterbi import Viterbi
 from forward_backward import ForwardBackward
 from fractions import Fraction
 from posterior_viterbi import PosteriorViterbi
+from parser import Processor
 
 
 '''
 Part 2
 '''
-def parse_train(filename):
-	tags = []
-	pairs = []
-	words = []
-	f = open(filename, 'r', encoding = 'UTF-8')
-	res = {}
-	found = False
-	for line in f:
-		line = line.split()
-		if len(line) > 0:
-			word = line[0]
-			tag = line[1]
-			tags.append(tag)
-			if word in '$"%&()+,-.../:);?1234567890\'':
-				if word in res:
-					found = True
-					if 'O' not in res[word]:
-						res[word]['O'] = 1
-					else:
-						res[word]['O'] += 1
-				if not found:
-					res[word] = {'O': 1}
-					for i in ['START', 'O', 'B-positive', 'B-neutral', 'B-negative', 'I-positive', 'I-neutral', 'I-negative', 'STOP']:
-						if i not in res[word]:
-							res[word][i] = 0
-				found = False
-			else:
-				if word in res:
-					found = True
-					if tag not in res[word]:
-						res[word][tag] = 1
-					else:
-						res[word][tag] += 1
-				if not found:
-					res[word] = {tag: 1}
-					for i in ['START', 'O', 'B-positive', 'B-neutral', 'B-negative', 'I-positive', 'I-neutral', 'I-negative', 'STOP']:
-						if i not in res[word]:
-							res[word][i] = 0
-				found = False
-	tags_count = Counter(tags)
-	f.close()
-	return res, tags_count
-
-def parse_train_lower(filename):
-	tags = []
-	pairs = []
-	words = []
-	f = open(filename, 'r', encoding = 'UTF-8')
-	res = {}
-	found = False
-	for line in f:
-		line = line.split()
-		if len(line) > 0:
-			word = line[0].lower()
-			tag = line[1]
-			tags.append(tag)
-			if word in res:
-				found = True
-				if tag not in res[word]:
-					res[word][tag] = 1
-				else:
-					res[word][tag] += 1
-			if not found:
-				res[word] = {tag: 1}
-				for i in ['START', 'O', 'B-positive', 'B-neutral', 'B-negative', 'I-positive', 'I-neutral', 'I-negative', 'STOP']:
-					if i not in res[word]:
-						res[word][i] = 0
-			found = False
-	tags_count = Counter(tags)
-	f.close()
-	return res, tags_count
-
-# Give emission parameters
-def get_emission_params(wordsCount, tagCount):
-	wordsCountP = copy.deepcopy(wordsCount)
-	for word, tags_dict in wordsCountP.items():
-		for tag, value in tags_dict.items():
-			if tagCount[tag] != 0:
-				wordsCountP[word][tag] = Fraction(value, tagCount[tag])
-			else:
-				wordsCountP[word][tag] = Fraction(0, 1)
-	return wordsCountP
-
-
-
-#Given a certain input of most frequent words and their tags, classifies the least N occuring words into a #UNK# unknown field
-#Counts the sum of all the tags of a word. If sum < n, the count of the indiv tags are added to #UNK#, else they are added to the output as a valid word.
-def process_unknown_words(f,n):
-	output = {}
-	output.update({'#UNK#':{'O': 0, 'START': 0, 'B-positive': 0, 'B-neutral': 0, 'B-negative': 0, 'I-positive': 0, 'I-neutral': 0, 'I-negative': 0, 'STOP': 0}})
-	for word in f:
-		if sum(f[word][tags] for tags in f[word]) > n:
-			output.update({word:f[word]})
-		else:
-			for tags in output['#UNK#']:
-				output['#UNK#'][tags] += f[word][tags]
-	return output
-
-#######################################
-
-#process_unknown_words_testing needs to be updated
-
-#######################################
 
 #Given a certain testing data set inp and a model generated from process_unknown_words, classifies all words not found in the model as #UNK#
 def process_unknown_words_testing(inp,model):
@@ -197,49 +95,6 @@ def output_file(data,fileName):
 Part 3
 '''
 
-def get_transition_params(filename):
-	f = open(filename, 'r', encoding = 'UTF-8')
-	tags = ['START', 'O', 'B-positive', 'B-neutral', 'B-negative', 'I-positive', 'I-neutral', 'I-negative', 'STOP']
-	currentTag = 'START'
-	tagCount = [0,0,0,0,0,0,0,0,0]
-	tagTransitionCount = {}
-	# initialise tagTransitionCount
-	for i in tags:
-		inner = {}
-		for j in tags:
-			inner[j] = 0
-		tagTransitionCount[i] = inner
-
-	# count transitions and tags
-	for line in f:
-		words = line.split()
-		# print (words)
-		if len(words) > 0:
-			if currentTag == 'START':
-				tagCount[tags.index('START')] += 1
-				tagTransitionCount[words[-1]][currentTag] += 1
-				tagCount[tags.index(words[-1])] += 1
-				currentTag = words[-1]
-			else:
-				tagTransitionCount[words[-1]][currentTag] += 1
-				tagCount[tags.index(words[-1])] += 1
-				currentTag = words[-1]
-		else:
-			tagTransitionCount['STOP'][currentTag] += 1
-			tagCount[tags.index('STOP')] += 1
-			currentTag = 'START'
-			tagCount[tags.index('START')] += 1 
-
-	# count transition params
-	for final, val in tagTransitionCount.items():
-		for initial, val_p in tagTransitionCount[final].items():
-			tagTransitionCount[final][initial] = Fraction(val_p, tagCount[tags.index(initial)])
-
-	result = {'tags': tags, 'map': tagTransitionCount}
-
-	f.close()
-	return result
-
 ##Writing a function to assign the viterbi output back to the seq
 ## that was passed in. v_out = [[tag,tag],[]] seq = [[{},{}],[{},{}]]
 def v_result_parse(v_out,seq):
@@ -256,17 +111,20 @@ def v_result_parse(v_out,seq):
 ## <<< RESULTS FOR PART 2 >>>>
 	
 #training	
-words_count, tag_count = parse_train(r'EN/train')
-words_count = process_unknown_words(words_count,3)
-ep = get_emission_params(words_count, tag_count)
-data = parser(r'EN/dev.in')
-data_p = process_unknown_words_testing(data,words_count)
-ep_p = emission_param_preprocess(ep)
-tagged_words = tagging_words(ep_p,data_p)
+# words_count, tag_count = Processor.parse_train(r'EN/train')
+words_count, tag_count = Processor.parse_tag(r'EN/train')
+print(words_count)
+print(tag_count)
+# words_count = Processor.process_unknown_words(words_count,3)
+# ep = Processor.get_emission_params(words_count, tag_count)
+# data = parser(r'EN/dev.in')
+# data_p = Processor.process_unknown_words_testing(data,words_count)
+# ep_p = emission_param_preprocess(ep)
+# tagged_words = tagging_words(ep_p,data_p)
 
 #testing vs actual output
-output_to_file = convert_back(tagged_words)
-output_file(output_to_file,r'EN/dev.p2.out')
+# output_to_file = convert_back(tagged_words)
+# output_file(output_to_file,r'EN/dev.p2.out')
 
 
 ## <<< RESULTS FOR PART 3 >>>
@@ -274,10 +132,10 @@ output_file(output_to_file,r'EN/dev.p2.out')
 # ### RUNNING VITERBI ###
 
 def run_viterbi(fileTrain, fileIn, fileOut):
-	words_count, tag_count = parse_train(fileTrain)
-	words_count = process_unknown_words(words_count,3)
-	ep = get_emission_params(words_count, tag_count)
-	tp = get_transition_params(fileTrain)
+	words_count, tag_count = Processor.parse_train(fileTrain)
+	words_count = Processor.process_unknown_words(words_count,3)
+	ep = Processor.get_emission_params(words_count, tag_count)
+	tp = Processor.get_transition_params(fileTrain)
 	seq = parser(fileIn)
 	v = Viterbi(tp,ep)
 	v_out = []
@@ -301,10 +159,10 @@ def run_viterbi(fileTrain, fileIn, fileOut):
 
 # ### RUNNING FORWARDBACKWARD ###
 def run_forwardbackward(fileTrain,fileIn,fileOut):
-	words_count, tag_count = parse_train(fileTrain)
-	words_count = process_unknown_words(words_count,3)
-	ep = get_emission_params(words_count, tag_count)
-	tp = get_transition_params(fileTrain)
+	words_count, tag_count = Processor.parse_train(fileTrain)
+	words_count = Processor.process_unknown_words(words_count,3)
+	ep = Processor.get_emission_params(words_count, tag_count)
+	tp = Processor.get_transition_params(fileTrain)
 	seq = parser(fileIn)
 
 	v = ForwardBackward(tp,ep)
@@ -326,10 +184,10 @@ def run_forwardbackward(fileTrain,fileIn,fileOut):
 
 
 def run_posteriorviterbi(fileTrain, fileIn, fileOut):
-	words_count, tag_count = parse_train(fileTrain)
-	words_count = process_unknown_words(words_count,3)
-	ep = get_emission_params(words_count, tag_count)
-	tp = get_transition_params(fileTrain)
+	words_count, tag_count = Processor.parse_train(fileTrain)
+	words_count = Processor.process_unknown_words(words_count,3)
+	ep = Processor.get_emission_params(words_count, tag_count)
+	tp = Processor.get_transition_params(fileTrain)
 	seq = parser(fileIn)
 	v = PosteriorViterbi(tp,ep)
 	v_out = []
