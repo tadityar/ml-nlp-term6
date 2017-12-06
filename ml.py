@@ -5,6 +5,7 @@ from forward_backward import ForwardBackward
 from fractions import Fraction
 from posterior_viterbi import PosteriorViterbi
 from processor import Processor
+import sys
 
 
 normal_tags = ['START', 'O', 'B-positive', 'B-neutral', 'B-negative', 'I-positive', 'I-neutral', 'I-negative', 'STOP']
@@ -12,8 +13,7 @@ tags_only = ['START', 'O', 'B', 'I', 'STOP']
 sentiment = ['START', 'positive', 'neutral', 'negative', 'STOP']
 
 ## <<< RESULTS FOR PART 2 >>>>
-	
-#training	
+
 def run_p2(fileTrain,fileIn,fileOut):
 	words_count, tag_count = Processor.parse_train(fileTrain)
 	words_count = Processor.process_unknown_words(words_count,3, normal_tags)
@@ -26,11 +26,6 @@ def run_p2(fileTrain,fileIn,fileOut):
 	output_to_file = Processor.convert_back(tagged_words)
 	Processor.output_file(output_to_file,fileOut)
 	print ("Part 2 done for "+fileOut)
-
-# run_p2(r'EN/train',r'EN/dev.in',r'EN/dev.p2.out')
-# run_p2(r'FR/train',r'FR/dev.in',r'FR/dev.p3.out')
-# run_p2(r'CN/train',r'CN/dev.in',r'CN/dev.p3.out')
-# run_p2(r'SG/train',r'SG/dev.in',r'SG/dev.p3.out')
 
 
 ## <<< RESULTS FOR PART 3 >>>
@@ -55,14 +50,6 @@ def run_viterbi(fileTrain, fileIn, fileOut):
 	Processor.output_file(output_to_file,fileOut)
 	print ("Viterbi done for "+ fileOut)
 
-# run_viterbi(r'EN/train',r'EN/dev.in',r'EN/dev.p3.out')
-# run_viterbi(r'FR/train',r'FR/dev.in',r'FR/dev.p3.out')
-# run_viterbi(r'CN/train',r'CN/dev.in',r'CN/dev.p3.out')
-# run_viterbi(r'SG/train',r'SG/dev.in',r'SG/dev.p3.out')
-# run_viterbi(r'EN/train',r'test/EN/test.in',r'test/EN/dev.p3.out')
-# run_viterbi(r'FR/train',r'test/FR/test.in',r'test/FR/dev.p3.out')
-
-
 ## <<< RESULTS FOR PART 4 >>>
 
 # ### RUNNING FORWARDBACKWARD ###
@@ -85,12 +72,6 @@ def run_forwardbackward(fileTrain,fileIn,fileOut):
 	Processor.output_file(output_to_file,fileOut)
 	print ("ForwardBackward done for "+ fileOut)
 
-# run_forwardbackward(r'EN/train',r'EN/dev.in',r'EN/dev.p4.out')
-# run_forwardbackward(r'FR/train',r'FR/dev.in',r'FR/dev.p4.out')
-# run_forwardbackward(r'EN/train',r'test/EN/test.in',r'test/EN/dev.p4.out')
-# run_forwardbackward(r'FR/train',r'test/FR/test.in',r'test/FR/dev.p4.out')
-
-
 def run_posteriorviterbi(fileTrain, fileIn, fileOut):
 	words_count, tag_count = Processor.parse_train(fileTrain)
 	words_count = Processor.process_unknown_words(words_count,3, normal_tags)
@@ -109,22 +90,8 @@ def run_posteriorviterbi(fileTrain, fileIn, fileOut):
 	Processor.output_file(output_to_file,fileOut)
 	print ("PosteriorViterbi done for "+ fileOut)
 
-# run_posteriorviterbi(r'EN/train',r'EN/dev.in',r'EN/dev.p5p.out')
-# run_posteriorviterbi(r'FR/train',r'FR/dev.in',r'FR/dev.p5p.out')
-# run_posteriorviterbi(r'test/EN/dev.p5.out',r'EN/dev.in',r'test/EN/dev.ptest1')
-# run_posteriorviterbi(r'test/FR/dev.p5.out',r'FR/dev.in',r'test/FR/dev.ptest1')
-# run_posteriorviterbi(r'test/EN/dev.p4.out',r'EN/dev.in',r'test/EN/dev.ptest2')
-# run_posteriorviterbi(r'test/FR/dev.p4.out',r'FR/dev.in',r'test/FR/dev.ptest2')
-# run_posteriorviterbi(r'test/EN/dev.p3.out',r'EN/dev.in',r'test/EN/dev.ptest3')
-# run_posteriorviterbi(r'test/FR/dev.p3.out',r'FR/dev.in',r'test/FR/dev.ptest3')
-# p = viterbi(seq,-1,tp,ep)
-# print (p)
-
-# o = viterbi_backtrack(tp,p,'STOP')
-# print (o)
-
 def run_separate_posteriorviterbi(fileTrain, fileIn, fileOut, n):
-	# do normal stuff
+	# HMM for Entity + Sentiment
 	words_count, tag_count = Processor.parse_train(fileTrain)
 	words_count = Processor.process_unknown_words(words_count,n, normal_tags)
 	ep = Processor.get_emission_params(words_count, tag_count)
@@ -137,7 +104,7 @@ def run_separate_posteriorviterbi(fileTrain, fileIn, fileOut, n):
 		out = v.assign(s)
 		v_out_normal.append(out)
 
-	# do stuff for tag
+	# HMM for Entity only
 	words_count, tag_count2 = Processor.parse_tag(fileTrain)
 	words_count = Processor.process_unknown_words(words_count,n, tags_only)
 	ep = Processor.get_emission_params(words_count, tag_count2)
@@ -150,7 +117,7 @@ def run_separate_posteriorviterbi(fileTrain, fileIn, fileOut, n):
 		out = v_tag.assign(s)
 		v_out_tag.append(out)
 
-	# do stuff for sentiment
+	# Get sentiment ratio
 	words_count, sentiment_count = Processor.parse_sentiment(fileTrain)
 	words_count = Processor.process_unknown_words(words_count,n, sentiment)
 	ep_sent = Processor.get_tag_sentiment_ratio(tag_count2, tag_count)
@@ -162,5 +129,19 @@ def run_separate_posteriorviterbi(fileTrain, fileIn, fileOut, n):
 	Processor.output_file(output_to_file,fileOut + '_separate'+ str(n))
 	print ("PosteriorViterbi tag done for "+ fileOut + '_separate'+ str(n))
 
-for i in range(1,15):
-	run_separate_posteriorviterbi(r'FR/train',r'FR/dev.in',r'FR/dev.p5sep.out',i)
+if __name__ == "__main__":
+	part = sys.argv[1]
+	trainFile = sys.argv[2]
+	inputFile = sys.argv[3]
+	outputFile = sys.argv[4]
+
+	if (part == '2'):
+		run_p2(trainFile, inputFile, outputFile)
+	elif (part == '3'):
+		run_viterbi(trainFile, inputFile, outputFile)
+	elif (part == '4'):
+		run_forwardbackward(trainFile, inputFile, outputFile)
+	elif (part == '5'):
+		run_separate_posteriorviterbi(trainFile, inputFile, outputFile)
+
+
