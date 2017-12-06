@@ -123,10 +123,10 @@ def run_posteriorviterbi(fileTrain, fileIn, fileOut):
 # o = viterbi_backtrack(tp,p,'STOP')
 # print (o)
 
-def run_separate_posteriorviterbi(fileTrain, fileIn, fileOut):
+def run_separate_posteriorviterbi(fileTrain, fileIn, fileOut, n):
 	# do normal stuff
 	words_count, tag_count = Processor.parse_train(fileTrain)
-	words_count = Processor.process_unknown_words(words_count,3, normal_tags)
+	words_count = Processor.process_unknown_words(words_count,n, normal_tags)
 	ep = Processor.get_emission_params(words_count, tag_count)
 	tp = Processor.get_transition_params(fileTrain, normal_tags, 'normal')
 	seq = Processor.parser(fileIn)
@@ -139,7 +139,7 @@ def run_separate_posteriorviterbi(fileTrain, fileIn, fileOut):
 
 	# do stuff for tag
 	words_count, tag_count2 = Processor.parse_tag(fileTrain)
-	words_count = Processor.process_unknown_words(words_count,3, tags_only)
+	words_count = Processor.process_unknown_words(words_count,n, tags_only)
 	ep = Processor.get_emission_params(words_count, tag_count2)
 	tp = Processor.get_transition_params(fileTrain, tags_only, 'tag')
 	seq = Processor.parser(fileIn)
@@ -152,14 +152,15 @@ def run_separate_posteriorviterbi(fileTrain, fileIn, fileOut):
 
 	# do stuff for sentiment
 	words_count, sentiment_count = Processor.parse_sentiment(fileTrain)
-	words_count = Processor.process_unknown_words(words_count,3, sentiment)
+	words_count = Processor.process_unknown_words(words_count,n, sentiment)
 	ep_sent = Processor.get_tag_sentiment_ratio(tag_count2, tag_count)
 
 	v_out_swapped = Processor.swap_if_different(v_out_normal, v_out_tag, ep_sent)
 
 	v_seq = Processor.v_result_parse(v_out_swapped,seq)
 	output_to_file = Processor.convert_back(v_seq)
-	Processor.output_file(output_to_file,fileOut + '_separate')
-	print ("PosteriorViterbi tag done for "+ fileOut + '_separate')
+	Processor.output_file(output_to_file,fileOut + '_separate'+ str(n))
+	print ("PosteriorViterbi tag done for "+ fileOut + '_separate'+ str(n))
 
-run_separate_posteriorviterbi(r'EN/train',r'EN/dev.in',r'EN/dev.p5sep.out')
+for i in range(1,15):
+	run_separate_posteriorviterbi(r'FR/train',r'FR/dev.in',r'FR/dev.p5sep.out',i)
