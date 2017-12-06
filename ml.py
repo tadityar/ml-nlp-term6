@@ -27,10 +27,10 @@ def run_p2(fileTrain,fileIn,fileOut):
 	Processor.output_file(output_to_file,fileOut)
 	print ("Part 2 done for "+fileOut)
 
-# run_p2(r'EN/train',r'EN/dev.in',r'EN/dev.p2.out')
-# run_p2(r'FR/train',r'FR/dev.in',r'FR/dev.p3.out')
-# run_p2(r'CN/train',r'CN/dev.in',r'CN/dev.p3.out')
-# run_p2(r'SG/train',r'SG/dev.in',r'SG/dev.p3.out')
+run_p2(r'EN/train',r'EN/dev.in',r'EN/dev.p2.out')
+run_p2(r'FR/train',r'FR/dev.in',r'FR/dev.p2.out')
+run_p2(r'CN/train',r'CN/dev.in',r'CN/dev.p2.out')
+run_p2(r'SG/train',r'SG/dev.in',r'SG/dev.p2.out')
 
 
 ## <<< RESULTS FOR PART 3 >>>
@@ -55,10 +55,10 @@ def run_viterbi(fileTrain, fileIn, fileOut):
 	Processor.output_file(output_to_file,fileOut)
 	print ("Viterbi done for "+ fileOut)
 
-# run_viterbi(r'EN/train',r'EN/dev.in',r'EN/dev.p3.out')
-# run_viterbi(r'FR/train',r'FR/dev.in',r'FR/dev.p3.out')
-# run_viterbi(r'CN/train',r'CN/dev.in',r'CN/dev.p3.out')
-# run_viterbi(r'SG/train',r'SG/dev.in',r'SG/dev.p3.out')
+run_viterbi(r'EN/train',r'EN/dev.in',r'EN/dev.p3.out')
+run_viterbi(r'FR/train',r'FR/dev.in',r'FR/dev.p3.out')
+run_viterbi(r'CN/train',r'CN/dev.in',r'CN/dev.p3.out')
+run_viterbi(r'SG/train',r'SG/dev.in',r'SG/dev.p3.out')
 # run_viterbi(r'EN/train',r'test/EN/test.in',r'test/EN/dev.p3.out')
 # run_viterbi(r'FR/train',r'test/FR/test.in',r'test/FR/dev.p3.out')
 
@@ -85,8 +85,8 @@ def run_forwardbackward(fileTrain,fileIn,fileOut):
 	Processor.output_file(output_to_file,fileOut)
 	print ("ForwardBackward done for "+ fileOut)
 
-# run_forwardbackward(r'EN/train',r'EN/dev.in',r'EN/dev.p4.out')
-# run_forwardbackward(r'FR/train',r'FR/dev.in',r'FR/dev.p4.out')
+run_forwardbackward(r'EN/train',r'EN/dev.in',r'EN/dev.p4.out')
+run_forwardbackward(r'FR/train',r'FR/dev.in',r'FR/dev.p4.out')
 # run_forwardbackward(r'EN/train',r'test/EN/test.in',r'test/EN/dev.p4.out')
 # run_forwardbackward(r'FR/train',r'test/FR/test.in',r'test/FR/dev.p4.out')
 
@@ -123,7 +123,7 @@ def run_posteriorviterbi(fileTrain, fileIn, fileOut):
 # o = viterbi_backtrack(tp,p,'STOP')
 # print (o)
 
-def run_separate_posteriorviterbi(fileTrain, fileIn, fileOut, n):
+def run_separate_posteriorviterbi(fileTrain, fileIn, fileOut, n=3):
 	# do normal stuff
 	words_count, tag_count = Processor.parse_train(fileTrain)
 	words_count = Processor.process_unknown_words(words_count,n, normal_tags)
@@ -159,8 +159,10 @@ def run_separate_posteriorviterbi(fileTrain, fileIn, fileOut, n):
 
 	v_seq = Processor.v_result_parse(v_out_swapped,seq)
 	output_to_file = Processor.convert_back(v_seq)
-	Processor.output_file(output_to_file,fileOut + '_separate'+ str(n))
-	print ("PosteriorViterbi tag done for "+ fileOut + '_separate'+ str(n))
+	Processor.output_file(output_to_file,fileOut)
+	print ("PosteriorViterbi tag done for "+ fileOut)
 
-for i in range(1,15):
-	run_separate_posteriorviterbi(r'FR/train',r'FR/dev.in',r'FR/dev.p5sep.out',i)
+run_separate_posteriorviterbi(r'FR/train',r'FR/dev.in',r'FR/dev.p5.out')
+run_separate_posteriorviterbi(r'EN/train',r'EN/dev.in',r'EN/dev.p5.out')
+run_separate_posteriorviterbi(r'EN/train',r'test/EN/test.in',r'EN/test.p5.out')
+run_separate_posteriorviterbi(r'FR/train',r'test/FR/test.in',r'FR/test.p5.out')
