@@ -299,10 +299,13 @@ class Processor:
 			res.append([])
 			for j in range(len(tag_out1[i])):
 				if (tag_out2[i][j] not in tag_out1[i][j]):
-					if (tag_out2[i][j] != 'O'):
+					if (tag_out2[i][j] != 'O' and tag_out1[i][j] == 'O'):
 						res[i].append(ep_sent[tag_out2[i][j][0]])
 					else:
-						res[i].append(tag_out2[i][j] + '-' + tag_out1[i][j][2:])
+						if (tag_out2[i][j] == 'O'):
+							res[i].append(tag_out2[i][j])
+						else:
+							res[i].append(tag_out2[i][j] + '-' + tag_out1[i][j][2:])
 				else:
 					res[i].append(tag_out1[i][j])
 		return res
