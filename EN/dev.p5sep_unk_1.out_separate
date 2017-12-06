@@ -1902,7 +1902,7 @@ winged I-positive
 / I-positive
 Dame I-positive
 Edna I-positive
-glasses O
+glasses O-positive
 ) O
 will O
 yell O
@@ -2390,7 +2390,7 @@ recommend O
 the O
 rice B-negative
 dishes I-negative
-or O
+or O-negative
 the O
 different O
 varieties O

@@ -2348,7 +2348,7 @@ miel I-negative
 citron I-negative
 accompagné I-negative
 de O
-pommes O
+pommes O-negative
 sautées O
 , O
 un O
@@ -3166,8 +3166,8 @@ très O
 chaleureux O
 du O
 patron B-negative
-et O
-de O
+et O-negative
+de O-negative
 sa O
 femme O
 . O

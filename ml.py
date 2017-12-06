@@ -27,7 +27,6 @@ def run_p2(fileTrain,fileIn,fileOut):
 	Processor.output_file(output_to_file,fileOut)
 	print ("Part 2 done for "+fileOut)
 
-
 ## <<< RESULTS FOR PART 3 >>>
 
 # ### RUNNING VITERBI ###
@@ -90,7 +89,7 @@ def run_posteriorviterbi(fileTrain, fileIn, fileOut):
 	Processor.output_file(output_to_file,fileOut)
 	print ("PosteriorViterbi done for "+ fileOut)
 
-def run_separate_posteriorviterbi(fileTrain, fileIn, fileOut, n):
+def run_separate_posteriorviterbi(fileTrain, fileIn, fileOut, n=3):
 	# HMM for Entity + Sentiment
 	words_count, tag_count = Processor.parse_train(fileTrain)
 	words_count = Processor.process_unknown_words(words_count,n, normal_tags)
@@ -126,8 +125,8 @@ def run_separate_posteriorviterbi(fileTrain, fileIn, fileOut, n):
 
 	v_seq = Processor.v_result_parse(v_out_swapped,seq)
 	output_to_file = Processor.convert_back(v_seq)
-	Processor.output_file(output_to_file,fileOut + '_separate'+ str(n))
-	print ("PosteriorViterbi tag done for "+ fileOut + '_separate'+ str(n))
+	Processor.output_file(output_to_file,fileOut)
+	print ("PosteriorViterbi tag done for "+ fileOut)
 
 if __name__ == "__main__":
 	part = sys.argv[1]
@@ -143,5 +142,4 @@ if __name__ == "__main__":
 		run_forwardbackward(trainFile, inputFile, outputFile)
 	elif (part == '5'):
 		run_separate_posteriorviterbi(trainFile, inputFile, outputFile)
-
 
